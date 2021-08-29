@@ -15,8 +15,6 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined";
 
 const drawerWidth = 240;
@@ -117,9 +115,10 @@ export default function NavigationDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap>
-            Planet Snake - Jazz Edition Dashboard
-          </Typography>
+          <ul>
+            <li>Planet Snake - Jazz Edition Dashboard</li>
+            <li> Warm Hide</li>
+          </ul>
         </Toolbar>
       </AppBar>
       <Drawer
