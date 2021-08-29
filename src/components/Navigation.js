@@ -6,7 +6,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -16,6 +15,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined";
+import Home from "./Home";
 
 const drawerWidth = 240;
 
@@ -115,10 +115,7 @@ export default function NavigationDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <ul>
-            <li>Planet Snake - Jazz Edition Dashboard</li>
-            <li> Warm Hide</li>
-          </ul>
+          Planet Snake Dashboard
         </Toolbar>
       </AppBar>
       <Drawer
@@ -155,15 +152,7 @@ export default function NavigationDrawer() {
         <Divider />
       </Drawer>
       <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do lorem.
-          Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
-        <Typography paragraph>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est
-        </Typography>
+        <Home />
       </main>
     </div>
   );
