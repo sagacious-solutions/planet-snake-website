@@ -1,5 +1,5 @@
 import { Button } from "@material-ui/core";
-import NavigationDrawer from "./components/sidebar";
+import NavigationDrawer from "./components/Navigation";
 
 import logo from "./logo.svg";
 import "./App.css";
