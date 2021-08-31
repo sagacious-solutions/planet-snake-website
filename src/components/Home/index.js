@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeaterControl from "./HeaterControl";
+import useHardwareAPI from "../../hooks/useHardwareAPI";
 
 // This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
 
 export default function Home(props) {
+  const { state, updateBaskingCurrent } = useHardwareAPI();
+
+  // useEffect(() => {}, state);
+  updateBaskingCurrent();
+
   return (
     <section>
       {
@@ -14,7 +20,12 @@ export default function Home(props) {
           alt="Sunnny the snake"
         />
       }
-      <HeaterControl currentTemp={31.5} targetTemp={35} zone="Basking" />
+      <h1></h1>
+      <HeaterControl
+        currentTemp={state.baskingCurrent}
+        targetTemp={state.baskingTarget}
+        zone="Basking"
+      />
     </section>
   );
 }
