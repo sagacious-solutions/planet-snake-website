@@ -1,4 +1,5 @@
 import React from "react";
+import HeaterControl from "./HeaterControl";
 
 // This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
@@ -13,7 +14,7 @@ export default function Home(props) {
           alt="Sunnny the snake"
         />
       }
-      <h1>HOMEPAGE</h1>
+      <HeaterControl currentTemp={31.5} targetTemp={35} zone="Basking" />
     </section>
   );
 }
