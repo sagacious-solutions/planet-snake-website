@@ -11,19 +11,19 @@ import "./HeaterControl.scss";
 export default function HeaterControl(props) {
   // Generates a class tag to determine if the button is green or red
   let heaterClass = classNames("heater-controller", {});
-  const currentTemp = 31.5;
-  const targetTemp = 32;
+  const currentTemp = props.currentTemp;
+  const targetTemp = props.targetTemp;
   const icon_styles = { fontSize: "1em" };
   const layout_styles = { display: "flex" };
-  const zone = "Warm Hide";
+  const zone = props.zone;
 
   return (
-    <div classNames="layout">
-      <h2>{zone}</h2>
+    <div class="layout">
+      <h2 class="title">{zone}</h2>
       <p className="heater-controller">
-        <AddOutlinedIcon style={icon_styles} onClick={props.add} />
+        <AddOutlinedIcon style={icon_styles} onClick={props.onAdd} />
         {currentTemp} / {targetTemp}c
-        <RemoveOutlinedIcon style={icon_styles} onClick={props.minus} />
+        <RemoveOutlinedIcon style={icon_styles} onClick={props.onMinus} />
       </p>
     </div>
   );
