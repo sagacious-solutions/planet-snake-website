@@ -18,11 +18,13 @@ export default function HeaterControl(props) {
   const zone = "Warm Hide";
 
   return (
-    <div className="heater-controller">
-      <h5>{zone}</h5>
-      <AddOutlinedIcon style={icon_styles} />
-      {currentTemp} / {targetTemp}c
-      <RemoveOutlinedIcon style={icon_styles} />
+    <div classNames="layout">
+      <h2>{zone}</h2>
+      <p className="heater-controller">
+        <AddOutlinedIcon style={icon_styles} onClick={props.add} />
+        {currentTemp} / {targetTemp}c
+        <RemoveOutlinedIcon style={icon_styles} onClick={props.minus} />
+      </p>
     </div>
   );
 }
