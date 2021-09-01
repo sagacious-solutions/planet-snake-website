@@ -6,10 +6,11 @@ import useHardwareAPI from "../../hooks/useHardwareAPI";
 import "./index.scss";
 
 export default function Home(props) {
-  const { state, updateBaskingCurrent } = useHardwareAPI();
+  const { state, useState, updateCurrent } = useHardwareAPI();
 
-  // useEffect(() => {}, state);
-  updateBaskingCurrent();
+  // setInterval(updateCurrent, 5000);
+
+  // useEffect(() => {});
 
   return (
     <section>
@@ -20,11 +21,21 @@ export default function Home(props) {
           alt="Sunnny the snake"
         />
       }
-      <h1></h1>
+
       <HeaterControl
         currentTemp={state.baskingCurrent}
         targetTemp={state.baskingTarget}
         zone="Basking"
+        onAdd={() => console.log("poop")}
+      />
+
+      <HeaterControl
+        currentTemp={state.hideCurrent}
+        targetTemp={state.hideTarget}
+        zone="Hide"
+        onAdd={() => {
+          console.log("Shit");
+        }}
       />
     </section>
   );
