@@ -13,6 +13,8 @@ export default function useHardwareAPI() {
     dayLightOn: true,
   });
 
+  const temperatureAdjust = 0.5; // The amount to change the temperature by on all adjustments
+
   useEffect(() => {
     updateCurrent();
   }, [state.dayLightOn]);
@@ -31,7 +33,7 @@ export default function useHardwareAPI() {
 
     getTargetConfig()
       .then((res) => {
-        updateTargetConfig(res);
+        updateTargetConfigFromAPI(res);
       })
       .catch(() => {
         console.log(
@@ -41,12 +43,12 @@ export default function useHardwareAPI() {
   };
 
   // Updates with the current temperature targets
-  const updateTargetConfig = (res) => {
+  const updateTargetConfigFromAPI = (res) => {
     setState((stateClassic) => {
       const newState = {
         ...stateClassic,
         baskingTarget: res.data.baskingCurrent,
-        hideCurrent: res.data.hideCurrent,
+        hideTarget: res.data.hideCurrent,
       };
 
       return newState;
@@ -67,14 +69,47 @@ export default function useHardwareAPI() {
     });
   };
 
-  const increaseBaskingTemp = () => {
+  ////////////////////////// WORKING HERE //////////////////////////////////////////
+  ///////////////////////////////////////////////////////
+
+  // by default inscreases temperature but decreases if its false
+  const increaseBaskingTemp = (increase = true) => {
     console.log("increase basking");
     // return axios.post("/baskingtargetup");
+
+    setState((classicState) => {
+      let adjustment = null;
+
+      if (increase) {
+        adjustment = temperatureAdjust;
+      } else {
+        adjustment = temperatureAdjust * -1;
+      }
+
+      const newState = {
+        ...classicState,
+        baskingTarget: classicState.baskingTarget + temperatureAdjust,
+      };
+
+      return newState;
+    });
   };
-  const decreaseBaskingTemp = () => {
-    console.log("decrease basking");
-    // return axios.post("/baskingtargetup");
-  };
+
+  // const decreaseBaskingTemp = () => {
+  //   console.log("decrease basking");
+
+  //   setState((classicState) => {
+  //     const newState = {
+  //       ...classicState,
+  //       baskingTarget: classicState.baskingTarget - temperatureAdjust,
+  //     };
+
+  //     return newState;
+  //   });
+
+  //   // return axios.post("/baskingtargetup");
+  // };
+
   const toggleDayNight = () => {
     console.log("Toggle Day Night Clicked");
 
@@ -89,6 +124,10 @@ export default function useHardwareAPI() {
 
   const getTargetConfig = () => {
     return axios.get("/targetconfig");
+  };
+
+  const putTargetConfig = () => {
+    return axios.put("/targetconfig", { baskingTarget, hideTarget });
   };
 
   const getTemperatureFromApi = (target) => {
