@@ -17,27 +17,53 @@ export default function useHardwareAPI() {
     updateCurrent();
   }, [state.dayLightOn]);
 
+  useEffect(() => {}, []);
+
+  // Updates the current temperatures from the api
   const updateCurrent = () => {
     getTemperatureFromApi("/current")
       .then((res) => {
-        setState((stateClassic) => {
-          console.log("this is res.data", res.data);
-          const newState = {
-            ...stateClassic,
-            baskingCurrent: res.data.baskingCurrent,
-            hideCurrent: res.data.hideCurrent,
-            coolCurrent: res.data.coolCurrent,
-          };
-
-          return newState;
-        });
+        updateCurrentTemperatures(res);
       })
       .catch((err) => {
         console.log(err);
       });
 
-    getTargetConfig().then((res) => {
-      console.log(res.data);
+    getTargetConfig()
+      .then((res) => {
+        updateTargetConfig(res);
+      })
+      .catch(() => {
+        console.log(
+          "unable to get target config values at the moment. Please try again later. Or dont, i'm not your dad"
+        );
+      });
+  };
+
+  // Updates with the current temperature targets
+  const updateTargetConfig = (res) => {
+    setState((stateClassic) => {
+      const newState = {
+        ...stateClassic,
+        baskingTarget: res.data.baskingCurrent,
+        hideCurrent: res.data.hideCurrent,
+      };
+
+      return newState;
+    });
+  };
+
+  // Updates all currently available temperatures
+  const updateCurrentTemperatures = (res) => {
+    setState((stateClassic) => {
+      const newState = {
+        ...stateClassic,
+        baskingCurrent: res.data.baskingCurrent,
+        property: res.data.hideCurrent,
+        coolCurrent: res.data.coolCurrent,
+      };
+
+      return newState;
     });
   };
 
