@@ -16,19 +16,6 @@ export default function HeaterControl(props) {
   const icon_styles = { fontSize: "1em" };
   const zone = props.zone;
 
-  // const useStyles = makeStyles((theme) => ({
-  //   root: {
-  //     display: "flex",
-  //     flexDirection: "column",
-  //     alignItems: "center",
-  //     "& > *": {
-  //       margin: theme.spacing(1),
-  //     },
-  //   },
-  // }));
-
-  // const classes = useStyles();
-
   return (
     <>
       <div className="heater-gui">
@@ -44,7 +31,7 @@ export default function HeaterControl(props) {
           <Button>
             {currentTemp} / {targetTemp}c
           </Button>
-          <Button>
+          <Button onClick={props.onMinus}>
             <RemoveOutlinedIcon style={icon_styles} />
           </Button>
         </ButtonGroup>
