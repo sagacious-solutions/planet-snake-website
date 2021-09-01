@@ -2,6 +2,9 @@ import React from "react";
 
 import RemoveOutlinedIcon from "@material-ui/icons/RemoveOutlined";
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
+import { makeStyles } from "@material-ui/core/styles";
 
 import "./HeaterControl.scss";
 
@@ -13,14 +16,39 @@ export default function HeaterControl(props) {
   const icon_styles = { fontSize: "1em" };
   const zone = props.zone;
 
+  // const useStyles = makeStyles((theme) => ({
+  //   root: {
+  //     display: "flex",
+  //     flexDirection: "column",
+  //     alignItems: "center",
+  //     "& > *": {
+  //       margin: theme.spacing(1),
+  //     },
+  //   },
+  // }));
+
+  // const classes = useStyles();
+
   return (
-    <section className="control-layout">
-      <h2>{zone}</h2>
-      <section className="heater-controller">
-        <AddOutlinedIcon style={icon_styles} onClick={props.onAdd} />
-        {currentTemp} / {targetTemp}c
-        <RemoveOutlinedIcon style={icon_styles} onClick={props.onMinus} />
-      </section>
-    </section>
+    <>
+      <div className="heater-gui">
+        <h2>{zone}</h2>
+        <ButtonGroup
+          variant="contained"
+          color="primary"
+          aria-label="contained primary button group"
+        >
+          <Button onClick={props.onAdd}>
+            <AddOutlinedIcon style={icon_styles} />
+          </Button>
+          <Button>
+            {currentTemp} / {targetTemp}c
+          </Button>
+          <Button>
+            <RemoveOutlinedIcon style={icon_styles} />
+          </Button>
+        </ButtonGroup>
+      </div>
+    </>
   );
 }
