@@ -10,31 +10,74 @@ export default function useHardwareAPI() {
     hideTarget: 32,
     hideCurrent: 5,
     coolCurrent: 5,
+    dayLightOn: true,
   });
 
+  useEffect(() => {
+    updateCurrent();
+  }, [state.dayLightOn]);
+
   const updateCurrent = () => {
-    console.log("Update All Current");
     getTemperatureFromApi("/current")
       .then((res) => {
-        setState((res) => {
-          console.log(res);
-          const newState = { ...state };
+        setState((stateClassic) => {
+          console.log("this is res.data", res.data);
+          const newState = {
+            ...stateClassic,
+            baskingCurrent: res.data.baskingCurrent,
+            hideCurrent: res.data.hideCurrent,
+            coolCurrent: res.data.coolCurrent,
+          };
 
           return newState;
         });
-
-        // setState((oldState) => {
-        //   return { ...oldState };
-        // });
       })
       .catch((err) => {
         console.log(err);
       });
+
+    getTargetConfig().then((res) => {
+      console.log(res.data);
+    });
   };
 
-  const getTemperatureFromApi = function (target) {
+  const increaseBaskingTemp = () => {
+    console.log("increase basking");
+    // return axios.post("/baskingtargetup");
+  };
+  const decreaseBaskingTemp = () => {
+    console.log("decrease basking");
+    // return axios.post("/baskingtargetup");
+  };
+  const toggleDayNight = () => {
+    console.log("Toggle Day Night Clicked");
+
+    setState(() => {
+      let newState = { ...state, dayLightOn: !state.dayLightOn };
+
+      return newState;
+    });
+
+    return axios.get("/toggledaynight");
+  };
+
+  const getTargetConfig = () => {
+    return axios.get("/targetconfig");
+  };
+
+  const getTemperatureFromApi = (target) => {
     return axios.get(target);
   };
 
-  return { state, setState, updateCurrent };
+  // updateCurrent();
+  // setInterval(updateCurrent, 30000);
+
+  return {
+    state,
+    setState,
+    updateCurrent,
+    increaseBaskingTemp,
+    decreaseBaskingTemp,
+    toggleDayNight,
+  };
 }
