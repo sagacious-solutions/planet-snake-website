@@ -10,6 +10,7 @@ export default function useHardwareAPI() {
     hideTarget: 32,
     hideCurrent: 5,
     coolCurrent: 5,
+    humidityCurrent: 0,
     dayLightOn: true,
   });
 
@@ -19,7 +20,7 @@ export default function useHardwareAPI() {
     updateCurrent();
   }, [state.dayLightOn]);
 
-  useEffect(() => {}, []);
+  ///////////////////////////////////////////////////////
 
   // Updates the current temperatures from the api
   const updateCurrent = () => {
@@ -61,8 +62,9 @@ export default function useHardwareAPI() {
       const newState = {
         ...stateClassic,
         baskingCurrent: res.data.baskingCurrent,
-        property: res.data.hideCurrent,
+        hideCurrent: res.data.hideCurrent,
         coolCurrent: res.data.coolCurrent,
+        humidityCurrent: res.data.humidityCurrent,
       };
 
       return newState;
@@ -72,10 +74,19 @@ export default function useHardwareAPI() {
   ////////////////////////// WORKING HERE //////////////////////////////////////////
   ///////////////////////////////////////////////////////
 
+  const putTargetConfig = () => {
+    return axios.put("/targetconfig", {
+      baskingTarget: state.baskingTarget,
+      hideTarget: state.hideTarget,
+    });
+  };
+
   // by default inscreases temperature but decreases if its false
-  const increaseBaskingTemp = (increase = true) => {
+  const adjustBaskingTemp = (increase = true) => {
     console.log("increase basking");
     // return axios.post("/baskingtargetup");
+
+    console.log(increase);
 
     setState((classicState) => {
       let adjustment = null;
@@ -86,14 +97,23 @@ export default function useHardwareAPI() {
         adjustment = temperatureAdjust * -1;
       }
 
+      console.log(adjustment);
+
       const newState = {
         ...classicState,
-        baskingTarget: classicState.baskingTarget + temperatureAdjust,
+        baskingTarget: classicState.baskingTarget + adjustment,
       };
 
       return newState;
     });
   };
+
+  ///////////////////////////////////////////////////////////////////////////////
+  /// THIS will trigger when the user hits plus or minus in the browser
+  //////////////////////////////////////////////////////////
+  useEffect(() => {
+    putTargetConfig();
+  }, [adjustBaskingTemp]);
 
   // const decreaseBaskingTemp = () => {
   //   console.log("decrease basking");
@@ -126,10 +146,6 @@ export default function useHardwareAPI() {
     return axios.get("/targetconfig");
   };
 
-  const putTargetConfig = () => {
-    return axios.put("/targetconfig", { baskingTarget, hideTarget });
-  };
-
   const getTemperatureFromApi = (target) => {
     return axios.get(target);
   };
@@ -141,8 +157,7 @@ export default function useHardwareAPI() {
     state,
     setState,
     updateCurrent,
-    increaseBaskingTemp,
-    decreaseBaskingTemp,
+    adjustBaskingTemp,
     toggleDayNight,
   };
 }
