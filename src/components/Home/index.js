@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 import HeaterControl from "./HeaterControl";
 import useHardwareAPI from "../../hooks/useHardwareAPI";
 
@@ -6,13 +7,14 @@ import useHardwareAPI from "../../hooks/useHardwareAPI";
 import "./index.scss";
 import SunMoonSwitch from "./SunMoonSwitch";
 import DisplayZoneTemp from "./DisplayZoneTemp";
+import VideoFeed from "./VideoFeed";
 
 export default function Home(props) {
   const {
     state,
     useState,
     updateCurrent,
-    increaseBaskingTemp,
+    adjustBaskingTemp,
     decreaseBaskingTemp,
     toggleDayNight,
   } = useHardwareAPI();
@@ -23,13 +25,7 @@ export default function Home(props) {
 
   return (
     <section>
-      {
-        <img
-          className="vivarium-video"
-          src="images/planet_snake.jpg"
-          alt="Sunnny the snake"
-        />
-      }
+      <VideoFeed />
 
       <SunMoonSwitch onClick={() => toggleDayNight()} />
 
@@ -37,8 +33,8 @@ export default function Home(props) {
         currentTemp={state.baskingCurrent}
         targetTemp={state.baskingTarget}
         zone="Basking"
-        onAdd={() => increaseBaskingTemp()}
-        onMinus={() => decreaseBaskingTemp()}
+        onAdd={() => adjustBaskingTemp()}
+        onMinus={() => adjustBaskingTemp(false)}
       />
 
       <HeaterControl
@@ -51,6 +47,7 @@ export default function Home(props) {
       />
 
       <DisplayZoneTemp zone={"Cool Hide"} temperature={state.coolCurrent} />
+      <DisplayZoneTemp zone={"Humidity"} temperature={state.humidityCurrent} />
     </section>
   );
 }
