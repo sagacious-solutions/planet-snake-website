@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-const api_network_address = `http://192.168.1.243:8345`;
+const api_network_address = `http://planetsnake.duckdns.org:8147/`;
 axios.defaults.baseURL = api_network_address;
 
 export default function useHardwareAPI() {
