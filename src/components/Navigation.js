@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import clsx from "clsx";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -87,6 +88,7 @@ export default function NavigationDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const { currentPage, setCurrentPage } = useState();
 
   const handleDrawerOpen = () => {
     setOpen(true);
