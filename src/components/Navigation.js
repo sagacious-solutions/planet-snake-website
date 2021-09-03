@@ -17,9 +17,9 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined";
 import TimelineIcon from "@material-ui/icons/Timeline";
-import PrettyInformationPage from "./PrettyInformationPage";
 import "./Navigation.scss";
 import Home from "./Home";
+import TemperatureHistory from "./TemperatureHistory";
 import SnakeHealth from "./SnakeHealth";
 const drawerWidth = 240;
 
@@ -174,8 +174,8 @@ export default function NavigationDrawer() {
             <ListItemIcon>
               <TimelineIcon
                 onClick={() => {
-                  alert("HAHA! Graphs!");
-                  // setPage(<COMPONENT NAME HERE />);
+                  // alert("HAHA! Graphs!");
+                  setPage(<TemperatureHistory />);
                 }}
               />
             </ListItemIcon>
