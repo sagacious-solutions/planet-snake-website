@@ -6,7 +6,7 @@ import useHardwareAPI from "../../hooks/useHardwareAPI";
 // This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
 import SunMoonSwitch from "./SunMoonSwitch";
-import DisplayZoneTemp from "./DisplayZoneTemp";
+import DisplaySensorData from "./DisplayZoneTemp";
 import VideoFeed from "./VideoFeed";
 
 export default function Home(props) {
@@ -15,39 +15,42 @@ export default function Home(props) {
     useState,
     updateCurrent,
     adjustBaskingTemp,
-    decreaseBaskingTemp,
+    adjustHideTemp,
     toggleDayNight,
   } = useHardwareAPI();
 
-  const aBool = false;
-
-  // setInterval(updateCurrent, 5000);
-
   return (
-    <section>
+    <>
       <VideoFeed />
+      <section class="control-board">
+        <SunMoonSwitch onClick={() => toggleDayNight()} />
 
-      <SunMoonSwitch onClick={() => toggleDayNight()} />
+        <div class="heater-controls">
+          <HeaterControl
+            currentTemp={state.baskingCurrent}
+            targetTemp={state.baskingTarget}
+            zone="Basking"
+            onAdd={() => adjustBaskingTemp()}
+            onMinus={() => adjustBaskingTemp(false)}
+          />
 
-      <HeaterControl
-        currentTemp={state.baskingCurrent}
-        targetTemp={state.baskingTarget}
-        zone="Basking"
-        onAdd={() => adjustBaskingTemp()}
-        onMinus={() => adjustBaskingTemp(false)}
-      />
+          <HeaterControl
+            currentTemp={state.hideCurrent}
+            targetTemp={state.hideTarget}
+            zone="Warm Hide"
+            onAdd={() => adjustHideTemp()}
+            onMinus={() => adjustHideTemp(false)}
+          />
+        </div>
 
-      <HeaterControl
-        currentTemp={state.hideCurrent}
-        targetTemp={state.hideTarget}
-        zone="Warm Hide"
-        onAdd={() => {
-          console.log("Shit");
-        }}
-      />
-
-      <DisplayZoneTemp zone={"Cool Hide"} temperature={state.coolCurrent} />
-      <DisplayZoneTemp zone={"Humidity"} temperature={state.humidityCurrent} />
-    </section>
+        <div class="sensor-output">
+          <DisplaySensorData
+            zone={"Cool Hide"}
+            temperature={`${state.coolCurrent}c`}
+          />
+          <DisplaySensorData zone={"Humidity"} temperature={"65% R/H"} />
+        </div>
+      </section>
+    </>
   );
 }
