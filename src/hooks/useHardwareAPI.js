@@ -82,6 +82,7 @@ export default function useHardwareAPI() {
   };
 
   // by default inscreases temperature but decreases if its false
+  // THIS NEEDS TO BE REFACTORED INTO A SINGLE FUNCTIOn
   const adjustBaskingTemp = (increase = true) => {
     console.log("increase basking");
     // return axios.post("/baskingtargetup");
@@ -89,22 +90,38 @@ export default function useHardwareAPI() {
     console.log(increase);
 
     setState((classicState) => {
-      let adjustment = null;
+      let adjustment = temperatureAdjust;
 
-      if (increase) {
-        adjustment = temperatureAdjust;
-      } else {
-        adjustment = temperatureAdjust * -1;
+      if (!increase) {
+        adjustment *= -1;
       }
 
-      console.log(adjustment);
-
-      const newState = {
+      return {
         ...classicState,
         baskingTarget: classicState.baskingTarget + adjustment,
       };
+    });
+  };
 
-      return newState;
+  // THIS NEEDS TO BE REFACTORED INTO A SINGLE FUNCTIOn
+  // by default inscreases temperature but decreases if its false
+  const adjustHideTemp = (increase = true) => {
+    console.log("increase basking");
+    // return axios.post("/baskingtargetup");
+
+    console.log(increase);
+
+    setState((classicState) => {
+      let adjustment = temperatureAdjust;
+
+      if (!increase) {
+        adjustment *= -1;
+      }
+
+      return {
+        ...classicState,
+        hideTarget: classicState.hideTarget + adjustment,
+      };
     });
   };
 
@@ -159,5 +176,6 @@ export default function useHardwareAPI() {
     updateCurrent,
     adjustBaskingTemp,
     toggleDayNight,
+    adjustHideTemp,
   };
 }
