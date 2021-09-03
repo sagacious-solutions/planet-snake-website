@@ -86,10 +86,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function NavigationDrawer() {
+  const defaultLandingPage = <Home />;
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const [page, setPage] = useState(<SnakeHealth />);
+  const [page, setPage] = useState(defaultLandingPage);
 
   const handleDrawerOpen = () => {
     setOpen(true);
