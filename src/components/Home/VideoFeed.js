@@ -12,7 +12,7 @@ export default function VideoFeed(props) {
         loading="lazy"
         scrolling="no"
         className="vivarium-video"
-        url="http://192.168.1.243:8081/"
+        url="http://planetsnake.duckdns.org:8567/"
         frameBorder="0"
       />
     </>
