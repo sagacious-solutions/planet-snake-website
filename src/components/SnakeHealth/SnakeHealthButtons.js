@@ -1,10 +1,23 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withTheme, ThemeProvider } from "@material-ui/core/styles";
+import { createTheme, useTheme } from "@material-ui/core/styles";
+
+const buttonTheme = createTheme({
+  palette: {
+    primary: {
+      main: "#fdd835",
+    },
+    secondary: {
+      main: "#af6200",
+    },
+  },
+});
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    marginTop: "50px",
     display: "flex",
     "& > *": {
       margin: theme.spacing(1),
@@ -12,40 +25,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SnakeHealthButtons() {
+function SnakeHealthButtons() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <ButtonGroup
-        orientation="vertical"
-        color="primary"
-        aria-label="vertical outlined primary button group"
-      >
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-      </ButtonGroup>
-      <ButtonGroup
-        orientation="vertical"
-        color="primary"
-        aria-label="vertical contained primary button group"
-        variant="contained"
-      >
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-      </ButtonGroup>
-      <ButtonGroup
-        orientation="vertical"
-        color="primary"
-        aria-label="vertical contained primary button group"
-        variant="text"
-      >
-        <Button>One</Button>
-        <Button>Two</Button>
-        <Button>Three</Button>
-      </ButtonGroup>
-    </div>
+    <ThemeProvider theme={buttonTheme}>
+      <div className={classes.root}>
+        <ButtonGroup
+          orientation="vertical"
+          color="primary"
+          aria-label="vertical contained primary button group"
+          variant="contained"
+          size="Large"
+        >
+          <Button>Shed Iminent</Button>
+          <Button>Shed Complete</Button>
+          <Button>Fecal Found</Button>
+          <Button>Urate Found</Button>
+          <Button>Rat Offered</Button>
+          <Button>Rat Ate</Button>
+          <Button>Rat Ignored</Button>
+        </ButtonGroup>
+      </div>
+    </ThemeProvider>
   );
 }
+
+export default withTheme(SnakeHealthButtons);
