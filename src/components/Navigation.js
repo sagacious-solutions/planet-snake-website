@@ -99,6 +99,9 @@ export default function NavigationDrawer() {
     setOpen(false);
   };
 
+  /////////////////////////////////////////////////////////////////
+  // THIS DECIDES WHAT PAGE TO DISPLAY in the main area
+  ////////////////////////////////////////////////////////////////////
   const displayPage = () => {
     return page;
   };
@@ -159,13 +162,22 @@ export default function NavigationDrawer() {
         <List>
           <ListItem button key={"home"}>
             <ListItemIcon>
-              <TvOutlinedIcon />
+              <TvOutlinedIcon
+                onClick={() => {
+                  setPage(<Home />);
+                }}
+              />
             </ListItemIcon>
             <ListItemText primary={"Home"} />
           </ListItem>
           <ListItem button key={"graphs"}>
             <ListItemIcon>
-              <TimelineIcon />
+              <TimelineIcon
+                onClick={() => {
+                  alert("HAHA! Graphs!");
+                  // setPage(<COMPONENT NAME HERE />);
+                }}
+              />
             </ListItemIcon>
             <ListItemText primary={"Temperature History"} />
           </ListItem>
@@ -175,7 +187,9 @@ export default function NavigationDrawer() {
                 className="snek-button"
                 src="images/SnekSideBarBut.png"
                 alt="snek-logo"
-                onClick={() => alert("haha same!")}
+                onClick={() => {
+                  setPage(<SnakeHealth />);
+                }}
               />
             </ListItemIcon>
             <ListItemText primary={"Snake Health"} />
