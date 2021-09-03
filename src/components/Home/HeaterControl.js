@@ -25,14 +25,15 @@ export default function HeaterControl(props) {
           color="primary"
           aria-label="contained primary button group"
         >
-          <Button onClick={props.onAdd}>
-            <AddOutlinedIcon style={icon_styles} />
+          <Button onClick={props.onMinus}>
+            <RemoveOutlinedIcon style={icon_styles} />
           </Button>
+
           <Button>
             {currentTemp} / {targetTemp}c
           </Button>
-          <Button onClick={props.onMinus}>
-            <RemoveOutlinedIcon style={icon_styles} />
+          <Button onClick={props.onAdd}>
+            <AddOutlinedIcon style={icon_styles} />
           </Button>
         </ButtonGroup>
       </div>
