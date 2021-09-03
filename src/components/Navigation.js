@@ -17,9 +17,10 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined";
 import TimelineIcon from "@material-ui/icons/Timeline";
-import Home from "./Home";
 import PrettyInformationPage from "./PrettyInformationPage";
 import "./Navigation.scss";
+import Home from "./Home";
+import SnakeHealth from "./SnakeHealth";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -88,7 +89,7 @@ export default function NavigationDrawer() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-  const { currentPage, setCurrentPage } = useState();
+  const [page, setPage] = useState(<SnakeHealth />);
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -99,7 +100,7 @@ export default function NavigationDrawer() {
   };
 
   const displayPage = () => {
-    return <Home />;
+    return page;
   };
 
   return (
