@@ -97,7 +97,7 @@ export default function NavigationDrawer() {
   };
 
   const displayPage = () => {
-    return <PrettyInformationPage />;
+    return <Home />;
   };
 
   return (
@@ -160,11 +160,22 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Home"} />
           </ListItem>
-          <ListItem button key={"home"}>
+          <ListItem button key={"graphs"}>
             <ListItemIcon>
               <TimelineIcon />
             </ListItemIcon>
             <ListItemText primary={"Temperature History"} />
+          </ListItem>
+          <ListItem button key={"snakeHealth"}>
+            <ListItemIcon>
+              <img
+                className="snek-button"
+                src="images/SnekSideBarBut.png"
+                alt="snek-logo"
+                onClick={() => alert("haha same!")}
+              />
+            </ListItemIcon>
+            <ListItemText primary={"Snake Health"} />
           </ListItem>
         </List>
         <Divider />
