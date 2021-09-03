@@ -15,8 +15,10 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined";
+import TimelineIcon from "@material-ui/icons/Timeline";
 import Home from "./Home";
-
+import PrettyInformationPage from "./PrettyInformationPage";
+import "./Navigation.scss";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -94,6 +96,10 @@ export default function NavigationDrawer() {
     setOpen(false);
   };
 
+  const displayPage = () => {
+    return <PrettyInformationPage />;
+  };
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -115,7 +121,13 @@ export default function NavigationDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          Planet Snake Dashboard
+          <img
+            className="snek-logo"
+            src="images/SnekLogo.png"
+            alt="snek-logo"
+            onClick={() => alert("haha same!")}
+          />
+          <h2>Planet Snake Dashboard</h2>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -148,12 +160,16 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Home"} />
           </ListItem>
+          <ListItem button key={"home"}>
+            <ListItemIcon>
+              <TimelineIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Temperature History"} />
+          </ListItem>
         </List>
         <Divider />
       </Drawer>
-      <main className={classes.content}>
-        <Home />
-      </main>
+      <main className={classes.content}>{displayPage()}</main>
     </div>
   );
 }
