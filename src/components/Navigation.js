@@ -166,36 +166,43 @@ export default function NavigationDrawer() {
         </div>
         <Divider />
         <List>
-          <ListItem button key={"home"}>
+          <ListItem
+            button
+            key={"home"}
+            onClick={() => {
+              setPage(<Home />);
+            }}
+          >
             <ListItemIcon>
-              <TvOutlinedIcon
-                onClick={() => {
-                  setPage(<Home />);
-                }}
-              />
+              <TvOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary={"Home"} />
           </ListItem>
-          <ListItem button key={"graphs"}>
+          <ListItem
+            button
+            key={"graphs"}
+            onClick={() => {
+              // alert("HAHA! Graphs!");
+              setPage(<TemperatureHistory />);
+            }}
+          >
             <ListItemIcon>
-              <TimelineIcon
-                onClick={() => {
-                  // alert("HAHA! Graphs!");
-                  setPage(<TemperatureHistory />);
-                }}
-              />
+              <TimelineIcon />
             </ListItemIcon>
             <ListItemText primary={"Temperature History"} />
           </ListItem>
-          <ListItem button key={"snakeHealth"}>
+          <ListItem
+            button
+            key={"snakeHealth"}
+            onClick={() => {
+              setPage(<SnakeHealth />);
+            }}
+          >
             <ListItemIcon>
               <img
                 className="snek-button"
                 src="images/SnekSideBarBut.png"
                 alt="snek-logo"
-                onClick={() => {
-                  setPage(<SnakeHealth />);
-                }}
               />
             </ListItemIcon>
             <ListItemText primary={"Snake Health"} />
