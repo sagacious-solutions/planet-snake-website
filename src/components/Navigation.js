@@ -26,9 +26,14 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    backgroundColor: "#2a4d61",
+    marginTop: "60px", // ADJUSTS PAGE HEIGHT FROM TOP
+    height: "1500px", // Extends back color down
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    // backgroundColor: "black", // CHANGE TOP BAR COLOR HERE
+
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
