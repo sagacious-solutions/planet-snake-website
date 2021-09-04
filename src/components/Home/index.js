@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import HeaterControl from "./components/HeaterControl";
 import useHardwareAPI from "../../hooks/useHardwareAPI";
@@ -12,8 +12,6 @@ import VideoFeed from "./components/VideoFeed";
 export default function Home(props) {
   const {
     state,
-    useState,
-    updateCurrent,
     adjustBaskingTemp,
     adjustHideTemp,
     toggleDayNight,
