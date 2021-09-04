@@ -160,6 +160,7 @@ export default function NavigationDrawer() {
           </IconButton>
         </div>
         <Divider />
+
         <List>
           <ListItem button key={"home"}>
             <ListItemIcon>
@@ -171,6 +172,7 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Home"} />
           </ListItem>
+
           <ListItem button key={"graphs"}>
             <ListItemIcon>
               <TimelineIcon
@@ -182,6 +184,7 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Temperature History"} />
           </ListItem>
+
           <ListItem button key={"snakeHealth"}>
             <ListItemIcon>
               <img
@@ -195,6 +198,7 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Snake Health"} />
           </ListItem>
+
         </List>
         <Divider />
       </Drawer>
