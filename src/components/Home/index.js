@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 
-import HeaterControl from "./HeaterControl";
+import HeaterControl from "./components/HeaterControl";
 import useHardwareAPI from "../../hooks/useHardwareAPI";
 
 // This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
-import SunMoonSwitch from "./SunMoonSwitch";
-import DisplaySensorData from "./DisplayZoneTemp";
-import VideoFeed from "./VideoFeed";
+import SunMoonSwitch from "./components/SunMoonSwitch";
+import DisplaySensorData from "./components/DisplayZoneTemp";
+import VideoFeed from "./components/VideoFeed";
 
 export default function Home(props) {
   const {
