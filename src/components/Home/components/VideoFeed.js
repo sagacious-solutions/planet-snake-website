@@ -9,7 +9,7 @@ export default function VideoFeed(props) {
       <iframe
         width="1920"
         height="1280"
-        src="https://www.youtube.com/embed/live_stream?channel=UCEB9BLgitLagZxh2de9CT5A"
+        src="https://www.youtube.com/embed/live_stream??autoplay=1&mute=1&channel=UCEB9BLgitLagZxh2de9CT5A"
         frameborder="0"
         autoplay="1"
         allowfullscreen
