@@ -17,9 +17,11 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined";
 import TimelineIcon from "@material-ui/icons/Timeline";
+import SignalCellular2BarIcon from "@material-ui/icons/SignalCellular2Bar";
 import "./Navigation.scss";
 import Home from "./Home";
 import TemperatureHistory from "./TemperatureHistory";
+import HeaterHistory from "./HeaterHistory";
 import SnakeHealth from "./SnakeHealth";
 const drawerWidth = 240;
 
@@ -166,7 +168,6 @@ export default function NavigationDrawer() {
         </div>
         <Divider />
         <List>
-
           <ListItem
             button
             key={"home"}
@@ -193,6 +194,19 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Temperature History"} />
           </ListItem>
+          <ListItem
+            button
+            key={"graphs"}
+            onClick={() => {
+              // alert("HAHA! Graphs!");
+              setPage(<HeaterHistory />);
+            }}
+          >
+            <ListItemIcon>
+              <SignalCellular2BarIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Heater Diagnostics"} />
+          </ListItem>
 
           <ListItem
             button
@@ -210,7 +224,6 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Snake Health"} />
           </ListItem>
-
         </List>
         <Divider />
       </Drawer>
