@@ -139,7 +139,7 @@ export default function NavigationDrawer() {
             alt="snek-logo"
             onClick={() => alert("haha same!")}
           />
-          <h2>Planet Snake: Sunny's Terrarium</h2>
+          <h2 className="header">Planet Snake: Sunny's Terrarium</h2>
         </Toolbar>
       </AppBar>
       <Drawer

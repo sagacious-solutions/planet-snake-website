@@ -1,8 +1,37 @@
-.TempGraph {
+@mixin dispComp {
   display:flex;
   justify-content: center;
+  color: rgba(0, 0, 0, 0.87)
 }
 
-.WELLDUH {
-  margin-top: 200px;
+@mixin bigFont {
+  color: whitesmoke;
+  font-family: 'Bebas Neue', cursive;
+  font-size: large;
+  
+}
+
+@mixin smallFont {
+  color: whitesmoke;
+  font-family: 'Share Tech', sans-serif;
+  font-size: small;
+}
+
+@mixin buttonFont {
+  color: gainsboro;
+  font-family: 'Oxanium', cursive;
+  font-size: small;
+}
+
+.TempGraph {
+  @include dispComp();
+}
+
+.TempDisp {
+  @include dispComp();
+  // @include bigFont();
+  @include smallFont();
+  margin-top: 80px;
+  // flex-direction: column;
+  justify-content: space-evenly;
 }
