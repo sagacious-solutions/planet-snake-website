@@ -139,7 +139,7 @@ export default function NavigationDrawer() {
             alt="snek-logo"
             onClick={() => alert("haha same!")}
           />
-          <h2>Planet Snake Dashboard</h2>
+          <h2 className="header">Planet Snake: Sunny's Terrarium</h2>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -166,6 +166,7 @@ export default function NavigationDrawer() {
         </div>
         <Divider />
         <List>
+
           <ListItem
             button
             key={"home"}
@@ -178,6 +179,7 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Home"} />
           </ListItem>
+
           <ListItem
             button
             key={"graphs"}
@@ -191,6 +193,7 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Temperature History"} />
           </ListItem>
+
           <ListItem
             button
             key={"snakeHealth"}
@@ -207,6 +210,7 @@ export default function NavigationDrawer() {
             </ListItemIcon>
             <ListItemText primary={"Snake Health"} />
           </ListItem>
+
         </List>
         <Divider />
       </Drawer>

@@ -64,7 +64,7 @@ export default function SnakeHealthDataDisplay() {
         </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h6" className={classes.title}>
-            Current State of Snek
+            Current Snek State
           </Typography>
           <div className={classes.demo}>
             <List dense={dense}>
@@ -82,7 +82,7 @@ export default function SnakeHealthDataDisplay() {
                   <FolderIcon />
                 </ListItemIcon> */}
                 <ListItemText
-                  primary={`Last complete shed : ${format(
+                  primary={`Last Complete Shed: ${format(
                     state.lastCompleteShed
                   )}`}
                   secondary={secondary ? "Secondary text" : null}
@@ -93,7 +93,7 @@ export default function SnakeHealthDataDisplay() {
                   <FolderIcon />
                 </ListItemIcon> */}
                 <ListItemText
-                  primary={`Poop Found: ${format(state.poopFound)}`}
+                  primary={`Fecal Waste Found: ${format(state.poopFound)}`}
                   secondary={secondary ? "Secondary text" : null}
                 />
               </ListItem>

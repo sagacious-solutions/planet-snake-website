@@ -38,7 +38,7 @@ function SnakeHealthButtons() {
           variant="contained"
           size="Large"
         >
-          <Button>Shed Iminent</Button>
+          <Button>Shed Imminent</Button>
           <Button>Shed Complete</Button>
           <Button>Fecal Found</Button>
           <Button>Urate Found</Button>
