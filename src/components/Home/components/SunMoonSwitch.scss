@@ -1,14 +1,18 @@
 @media (prefers-reduced-motion: no-preference) {
+  .sun-moon-image[rotate='1'] {
+    animation: App-logo-spin 0.5s linear;
+  }
   .sun-moon-image {
-    animation: App-logo-spin infinite 5s linear;
+    width: 250px;
+    height: 250px;
   }
 }
 
-@keyframes App-logo-spin {
+@keyframes rotate {
   from {
-    transform: rotate(0deg);
+    transform: rotate(0);
   }
   to {
-    transform: rotate(360);
+    transform: rotate(180);
   }
 }
