@@ -26,9 +26,14 @@ const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    backgroundColor: "#2a4d61",
+    marginTop: "60px", // ADJUSTS PAGE HEIGHT FROM TOP
+    height: "1500px", // Extends back color down
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    // backgroundColor: "black", // CHANGE TOP BAR COLOR HERE
+
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -160,40 +165,47 @@ export default function NavigationDrawer() {
           </IconButton>
         </div>
         <Divider />
-
         <List>
-          <ListItem button key={"home"}>
+
+          <ListItem
+            button
+            key={"home"}
+            onClick={() => {
+              setPage(<Home />);
+            }}
+          >
             <ListItemIcon>
-              <TvOutlinedIcon
-                onClick={() => {
-                  setPage(<Home />);
-                }}
-              />
+              <TvOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary={"Home"} />
           </ListItem>
 
-          <ListItem button key={"graphs"}>
+          <ListItem
+            button
+            key={"graphs"}
+            onClick={() => {
+              // alert("HAHA! Graphs!");
+              setPage(<TemperatureHistory />);
+            }}
+          >
             <ListItemIcon>
-              <TimelineIcon
-                onClick={() => {
-                  // alert("HAHA! Graphs!");
-                  setPage(<TemperatureHistory />);
-                }}
-              />
+              <TimelineIcon />
             </ListItemIcon>
             <ListItemText primary={"Temperature History"} />
           </ListItem>
 
-          <ListItem button key={"snakeHealth"}>
+          <ListItem
+            button
+            key={"snakeHealth"}
+            onClick={() => {
+              setPage(<SnakeHealth />);
+            }}
+          >
             <ListItemIcon>
               <img
                 className="snek-button"
                 src="images/SnekSideBarBut.png"
                 alt="snek-logo"
-                onClick={() => {
-                  setPage(<SnakeHealth />);
-                }}
               />
             </ListItemIcon>
             <ListItemText primary={"Snake Health"} />
