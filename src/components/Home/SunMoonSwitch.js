@@ -12,6 +12,7 @@ export default function SunMoonSwitch(props) {
         src="images/sunmoonTrans.png"
         alt="Sun Moon Doodad"
         onClick={props.onClick}
+          
       />
     </>
   );

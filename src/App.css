@@ -2,10 +2,10 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-  .sun-moon-image {
+  /* .sun-moon-image {
     width: 275px;
     height: 275px;
-  }
+  } */
 }
 
 @keyframes App-logo-spin {
