@@ -14,11 +14,12 @@
 @mixin smallFont {
   color: whitesmoke;
   font-family: 'Share Tech', sans-serif;
-  font-size: small;
+  font-size: medium;
 }
 
 @mixin buttonFont {
   color: gainsboro;
+  // color:
   font-family: 'Oxanium', cursive;
   font-size: small;
 }
@@ -31,7 +32,9 @@
   @include dispComp();
   // @include bigFont();
   @include smallFont();
+  // @include buttonFont;
   margin-top: 80px;
   // flex-direction: column;
   justify-content: space-evenly;
 }
+
