@@ -6,15 +6,15 @@ import "./VideoFeed.scss";
 export default function VideoFeed(props) {
   return (
     <>
-      <Iframe
+      <iframe
         width="1280"
         height="720"
-        loading="lazy"
-        scrolling="no"
-        className="vivarium-video"
-        url="http://planetsnake.duckdns.org:8567/"
-        frameBorder="0"
-      />
+        src="https://youtube.com/embed/CVqWtJFbtjk"
+        autoplay="1"
+        mute="1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
     </>
   );
 }

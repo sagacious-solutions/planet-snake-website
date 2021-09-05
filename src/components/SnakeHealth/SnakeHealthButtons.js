@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 import { makeStyles, withTheme, ThemeProvider } from "@material-ui/core/styles";
-import { createTheme, useTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 
 const buttonTheme = createTheme({
   palette: {
@@ -38,7 +38,7 @@ function SnakeHealthButtons() {
           variant="contained"
           size="Large"
         >
-          <Button>Shed Iminent</Button>
+          <Button>Shed Imminent</Button>
           <Button>Shed Complete</Button>
           <Button>Fecal Found</Button>
           <Button>Urate Found</Button>

@@ -17,18 +17,25 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import TvOutlinedIcon from "@material-ui/icons/TvOutlined";
 import TimelineIcon from "@material-ui/icons/Timeline";
+import SignalCellular2BarIcon from "@material-ui/icons/SignalCellular2Bar";
 import "./Navigation.scss";
 import Home from "./Home";
 import TemperatureHistory from "./TemperatureHistory";
+import HeaterHistory from "./HeaterHistory";
 import SnakeHealth from "./SnakeHealth";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    backgroundColor: "#2a4d61",
+    marginTop: "60px", // ADJUSTS PAGE HEIGHT FROM TOP
+    height: "1500px", // Extends back color down
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    // backgroundColor: "black", // CHANGE TOP BAR COLOR HERE
+
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -134,7 +141,7 @@ export default function NavigationDrawer() {
             alt="snek-logo"
             onClick={() => alert("haha same!")}
           />
-          <h2>Planet Snake Dashboard</h2>
+          <h2 className="header">Planet Snake: Sunny's Terrarium</h2>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -161,36 +168,58 @@ export default function NavigationDrawer() {
         </div>
         <Divider />
         <List>
-          <ListItem button key={"home"}>
+          <ListItem
+            button
+            key={"home"}
+            onClick={() => {
+              setPage(<Home />);
+            }}
+          >
             <ListItemIcon>
-              <TvOutlinedIcon
-                onClick={() => {
-                  setPage(<Home />);
-                }}
-              />
+              <TvOutlinedIcon />
             </ListItemIcon>
             <ListItemText primary={"Home"} />
           </ListItem>
-          <ListItem button key={"graphs"}>
+
+          <ListItem
+            button
+            key={"graphs"}
+            onClick={() => {
+              // alert("HAHA! Graphs!");
+              setPage(<TemperatureHistory />);
+            }}
+          >
             <ListItemIcon>
-              <TimelineIcon
-                onClick={() => {
-                  // alert("HAHA! Graphs!");
-                  setPage(<TemperatureHistory />);
-                }}
-              />
+              <TimelineIcon />
             </ListItemIcon>
             <ListItemText primary={"Temperature History"} />
           </ListItem>
-          <ListItem button key={"snakeHealth"}>
+          <ListItem
+            button
+            key={"graphs"}
+            onClick={() => {
+              // alert("HAHA! Graphs!");
+              setPage(<HeaterHistory />);
+            }}
+          >
+            <ListItemIcon>
+              <SignalCellular2BarIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Heater Diagnostics"} />
+          </ListItem>
+
+          <ListItem
+            button
+            key={"snakeHealth"}
+            onClick={() => {
+              setPage(<SnakeHealth />);
+            }}
+          >
             <ListItemIcon>
               <img
                 className="snek-button"
                 src="images/SnekSideBarBut.png"
                 alt="snek-logo"
-                onClick={() => {
-                  setPage(<SnakeHealth />);
-                }}
               />
             </ListItemIcon>
             <ListItemText primary={"Snake Health"} />

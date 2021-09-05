@@ -1,3 +1,31 @@
+@mixin dispComp {
+  display:flex;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.87)
+}
+
+@mixin bigFont {
+  color: whitesmoke;
+  font-family: 'Bebas Neue', cursive;
+  font-size: large;
+}
+
+@mixin smallFont {
+  color: whitesmoke;
+  font-family: 'Share Tech', sans-serif;
+  font-size: small;
+}
+
+@mixin buttonFont {
+  color: gainsboro;
+  font-family: 'Oxanium', cursive;
+  font-size: small;
+}
+
+.header {
+  @include bigFont();
+}
+
 .layout {
   display: flex;
   min-height: 100vh;

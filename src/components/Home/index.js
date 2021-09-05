@@ -1,19 +1,17 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-import HeaterControl from "./HeaterControl";
+import HeaterControl from "./components/HeaterControl";
 import useHardwareAPI from "../../hooks/useHardwareAPI";
 
 // This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
-import SunMoonSwitch from "./SunMoonSwitch";
-import DisplaySensorData from "./DisplayZoneTemp";
-import VideoFeed from "./VideoFeed";
+import SunMoonSwitch from "./components/SunMoonSwitch";
+import DisplaySensorData from "./components/DisplayZoneTemp";
+import VideoFeed from "./components/VideoFeed";
 
 export default function Home(props) {
   const {
     state,
-    useState,
-    updateCurrent,
     adjustBaskingTemp,
     adjustHideTemp,
     toggleDayNight,
@@ -47,7 +45,7 @@ export default function Home(props) {
         <div class="sensor-output">
           <DisplaySensorData
             zone={"Cool Hide"}
-            temperature={`${state.coolCurrent}c`}
+            temperature={`${state.coolCurrent}°c`}
           />
           <DisplaySensorData zone={"Humidity"} temperature={"65% R/H"} />
         </div>

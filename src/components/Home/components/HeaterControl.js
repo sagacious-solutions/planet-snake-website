@@ -4,7 +4,7 @@ import RemoveOutlinedIcon from "@material-ui/icons/RemoveOutlined";
 import AddOutlinedIcon from "@material-ui/icons/AddOutlined";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 
 import "./HeaterControl.scss";
 
@@ -30,7 +30,7 @@ export default function HeaterControl(props) {
           </Button>
 
           <Button>
-            {currentTemp} / {targetTemp}c
+            {currentTemp}°c / {targetTemp}°c
           </Button>
           <Button onClick={props.onAdd}>
             <AddOutlinedIcon style={icon_styles} />
