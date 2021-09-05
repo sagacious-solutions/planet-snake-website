@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import {
   // main component
@@ -42,19 +42,19 @@ export default function TemperatureHistory(props) {
     }
   ];
 
-  <div class="TempGraph">
-    <Chart width={800} height={400} series={series} >
-      <Bars innerPadding={5} groupPadding={10} />
-      <Lines minX={0} maxX={8} minY={0} maxY={40} />
-      <Dots />
-      <Title>Terrarium Temperature (°C)</Title>
-    </Chart>
-  </div>
 
   return (
     <>
-      <div class="WELLDUH">
+      <div className="WELLDUH">
         <h1>Terrarium Temperature (°C)</h1>
+        {/* <div className="TempGraph">
+          <Chart width={800} height={400} series={series} >
+            <Bars innerPadding={5} groupPadding={10} />
+            <Lines minX={0} maxX={8} minY={0} maxY={40} />
+            <Dots />
+            <Title>Terrarium Temperature (°C)</Title>
+          </Chart>
+        </div> */}
       </div>
     </>
   );
