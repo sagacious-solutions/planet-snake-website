@@ -1,17 +1,4 @@
-.control-board {
+.pageBox {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  max-width: 1200px;
-}
-
-.heater-control {
-  display: flex;
-  flex-direction: column;
-}
-
-.sensor-output {
-  display: flex;
-  flex-direction: column;
-  // align-content: space-around;
 }
