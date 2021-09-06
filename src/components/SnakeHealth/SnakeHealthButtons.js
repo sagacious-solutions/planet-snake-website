@@ -19,10 +19,22 @@ const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: "50px",
     display: "flex",
-    "& > *": {
-      margin: theme.spacing(2),
-    },
+    flexDirection: "column",
+    // justifyContent: "space-between",
   },
+  button: {
+    marginTop: "0.4em",
+    marginBottom: "0.4em",
+  },
+  // button:hover {
+  //   backgroundColor: "goldenrod",
+  //   transform: "scale(1.2)",
+  // },
+
+  // button:active {
+  //   backgroundColor: goldenrod,
+  //   transform: "scale(0.9)",
+  // },
 }));
 
 function SnakeHealthButtons() {
@@ -38,13 +50,13 @@ function SnakeHealthButtons() {
           variant="contained"
           size="small"
         >
-          <Button>Shed Imminent</Button>
-          <Button>Shed Complete</Button>
-          <Button>Fecal Found</Button>
-          <Button>Urate Found</Button>
-          <Button>Rat Offered</Button>
-          <Button>Rat Ate</Button>
-          <Button>Rat Ignored</Button>
+          <Button className={classes.button}>Shed Imminent</Button>
+          <Button className={classes.button}>Shed Complete</Button>
+          <Button className={classes.button}>Fecal Found</Button>
+          <Button className={classes.button}>Urate Found</Button>
+          <Button className={classes.button}>Rat Offered</Button>
+          <Button className={classes.button}>Rat Ate</Button>
+          <Button className={classes.button}>Rat Ignored</Button>
         </ButtonGroup>
       </div>
     </ThemeProvider>

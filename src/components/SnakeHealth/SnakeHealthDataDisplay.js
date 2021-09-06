@@ -16,10 +16,11 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 700,
     marginTop: "0%",
     marginBottom: "5%",
+    // marginLeft: "10%",
+    // backgroundColor: "#fafafa",
+    backgroundColor: "gainsboro",
   },
-  demo: {
-    backgroundColor: theme.palette.background.paper,
-  },
+
   title: {
     margin: theme.spacing(0, 0, 0),
   },
@@ -45,14 +46,6 @@ export default function SnakeHealthDataDisplay() {
   return (
     <div className={classes.root}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
-          <Typography variant="h6" className={classes.title}>
-            Set Health Item
-          </Typography>
-          <div className={classes.demo}>
-            <SnakeHealthButtons />
-          </div>
-        </Grid>
         <Grid item xs={12} md={6}>
           <Typography variant="h6" className={classes.title}>
             Current Snek State
