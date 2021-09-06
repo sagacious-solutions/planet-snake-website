@@ -20,11 +20,11 @@ export default function Home(props) {
   return (
     <>
       <VideoFeed />
-      <section class="control-board">
+      <section className="control-board">
         {/* <SunMoonSwitch onClick={() => alert("Day Night Switch")} /> */}
         <SunMoonSwitch onClick={() => toggleDayNight()} />
 
-        <div class="heater-controls">
+        <div className="heater-controls">
           <HeaterControl
             currentTemp={state.baskingCurrent}
             targetTemp={state.baskingTarget}
@@ -42,7 +42,7 @@ export default function Home(props) {
           />
         </div>
 
-        <div class="sensor-output">
+        <div className="sensor-output">
           <DisplaySensorData
             zone={"Cool Hide"}
             temperature={`${state.coolCurrent}°c`}

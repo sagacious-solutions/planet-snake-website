@@ -22,7 +22,7 @@ export default function HeaterControl(props) {
         <h2>{zone}</h2>
         <ButtonGroup
           variant="contained"
-          color="primary"
+          color="#2a4d61"
           aria-label="contained primary button group"
         >
           <Button onClick={props.onMinus}>

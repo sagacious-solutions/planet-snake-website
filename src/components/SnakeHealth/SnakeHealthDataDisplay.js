@@ -13,14 +13,15 @@ import SnakeHealthButtons from "./SnakeHealthButtons";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    maxWidth: 752,
-    marginTop: "100px",
+    maxWidth: 700,
+    marginTop: "0%",
+    marginBottom: "5%",
   },
   demo: {
     backgroundColor: theme.palette.background.paper,
   },
   title: {
-    margin: theme.spacing(4, 0, 2),
+    margin: theme.spacing(0, 0, 0),
   },
 }));
 
@@ -49,16 +50,6 @@ export default function SnakeHealthDataDisplay() {
             Set Health Item
           </Typography>
           <div className={classes.demo}>
-            {/* <List dense={dense}>
-              {generate(
-                <ListItem>
-                  <ListItemText
-                    primary="Single-line item"
-                    secondary={secondary ? "Secondary text" : null}
-                  />
-                </ListItem>
-              )}
-            </List> */}
             <SnakeHealthButtons />
           </div>
         </Grid>

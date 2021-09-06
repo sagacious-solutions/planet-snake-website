@@ -23,7 +23,7 @@ const wideItemProps = {
   overrides: {
     Block: {
       style: ({ $theme }) => ({
-        width: `calc((200% - ${$theme.sizing.scale800}) / 3)`,
+        width: `calc((200% - ${$theme.sizing.scale}) / 3)`,
       }),
     },
   },

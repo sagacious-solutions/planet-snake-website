@@ -53,7 +53,7 @@ const data = {
 const options = {
   responsive: true,
   maintainApectRatio: true,
-  color: 'gainsboro',
+  color: '#2a4d61',
 
   plugins: {
     legend: {

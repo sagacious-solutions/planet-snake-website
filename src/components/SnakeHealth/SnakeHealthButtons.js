@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "50px",
     display: "flex",
     "& > *": {
-      margin: theme.spacing(1),
+      margin: theme.spacing(2),
     },
   },
 }));
@@ -36,7 +36,7 @@ function SnakeHealthButtons() {
           color="primary"
           aria-label="vertical contained primary button group"
           variant="contained"
-          size="Large"
+          size="small"
         >
           <Button>Shed Imminent</Button>
           <Button>Shed Complete</Button>

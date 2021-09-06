@@ -23,17 +23,17 @@ import Home from "./Home";
 import TemperatureHistory from "./TemperatureHistory";
 import HeaterHistory from "./HeaterHistory";
 import SnakeHealth from "./SnakeHealth";
-const drawerWidth = 240;
 
+const drawerWidth = 260;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     backgroundColor: "gainsboro",
     marginTop: "60px", // ADJUSTS PAGE HEIGHT FROM TOP
-    height: "1500px", // Extends back color down
+    height: "100%", // Extends background colour down
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1,
+    zIndex: theme.zIndex.drawer + 1, //hamburger menu icon
     backgroundColor: "#2a4d61", // CHANGE TOP BAR COLOR HERE
 
     transition: theme.transitions.create(["width", "margin"], {
@@ -73,9 +73,9 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     overflowX: "hidden",
-    width: theme.spacing(7) + 1,
+    width: theme.spacing(0),
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9) + 1,
+      width: theme.spacing(0), //side bar menu icons (anything >0 = icon display when collapsed)
     },
   },
   toolbar: {
@@ -88,7 +88,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
+    padding: theme.spacing(3), //body spacing between header and lice stream
   },
 }));
 
