@@ -13,6 +13,7 @@ export default function useHardwareAPI() {
     humidityCurrent: 0,
     dayLightOn: true,
   });
+  const [isDay, setIsDay] = useState(true);
 
   const temperatureAdjust = 0.5; // The amount to change the temperature by on all adjustments
 

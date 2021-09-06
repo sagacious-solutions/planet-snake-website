@@ -1,10 +1,10 @@
 import { PinDropSharp } from "@material-ui/icons";
 import React, { useState } from "react";
 import "./SunMoonSwitch.scss";
+import { isDay, setIsNight } from "../../../hooks/useHardwareAPI";
 
 const SunMoonSwitch = (props) => {
   const [rotate, setRotate] = React.useState(0);
-  const [isDay, setIsDay] = useState(true);
   const [turnToNight, setTurnToNight] = React.useState(0);
   const [turnToDay, setTurnToDay] = React.useState(0);
 
