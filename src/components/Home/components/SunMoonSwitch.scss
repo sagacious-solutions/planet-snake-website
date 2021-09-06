@@ -1,18 +1,65 @@
-@media (prefers-reduced-motion: no-preference) {
-  .sun-moon-image[rotate='1'] {
-    animation: App-logo-spin 0.5s linear;
-  }
-  .sun-moon-image {
-    width: 250px;
-    height: 250px;
+// @media (prefers-reduced-motion: no-preference) {
+//   .sun-moon-image[isDay] {
+//     animation: setNight 0.5s linear;
+//   }
+.sun-moon-image {
+  width: 250px;
+  height: 250px;
+}
+// }
+
+.sun-moon-image[wobble="1"] {
+  // animation: setNight 1s linear;
+  animation: wobble 1s 1;
+}
+
+.sun-moon-image.Night {
+  transform: rotate(180deg);
+}
+
+// @keyframes setNight {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(180deg);
+//   }
+// }
+
+@keyframes wobble {
+  // 25% {
+  //   transform: rotate(15deg);
+  // }
+  // 50% {
+  //   transform: rotate(-30deg);
+  // }
+  // 75% {
+  //   transform: rotate(5deg);
+  // }
+  100% {
+    transform: rotate(180deg);
   }
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(0);
-  }
-  to {
-    transform: rotate(180);
-  }
-}
+// .image {
+//   display: block;
+//   margin: 0 auto;
+// }
+// .image[wobble='1'] {
+//   animation: wobble 1s 1;
+// }
+
+// @keyframes wobble {
+//   25% {
+//     transform: rotate(15deg);
+//   }
+//   50% {
+//     transform: rotate(-30deg);
+//   }
+//   75% {
+//     transform: rotate(5deg);
+//   }
+//   100% {
+//     transform: rotate(0deg);
+//   }
+// }
