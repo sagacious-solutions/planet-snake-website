@@ -5,25 +5,27 @@
 }
 
 @mixin bigFont {
-  color: whitesmoke;
+  color: #2a4d61;
   font-family: 'Bebas Neue', cursive;
   font-size: large;
 }
 
 @mixin smallFont {
-  color: whitesmoke;
+  color: #2a4d61;
   font-family: 'Share Tech', sans-serif;
   font-size: small;
 }
 
 @mixin buttonFont {
-  color: gainsboro;
+  color: #2a4d61;
   font-family: 'Oxanium', cursive;
   font-size: small;
 }
 
 .header {
   @include bigFont();
+  color: goldenrod;
+  
 }
 
 .layout {

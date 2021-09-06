@@ -12,7 +12,7 @@ const data = {
 
   datasets: [
     {
-      label: 'Current Temperature Reading',
+      label: 'Current Temperature Reading (w/in Terrarium)',
       data: [
         17.6,
         15.8,
@@ -23,12 +23,12 @@ const data = {
       ],
       fill: false,
       indexAxis: 'x',
-      backgroundColor: 'skyblue',
-      borderColor: 'teal',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'yellow',
       tension: 0.4,
     },
     {
-      label: 'Weekly Average of Current Temperature Readings',
+      label: 'Weekly Avg CTR (w/in Terrarium)',
       data: [
         21.2,
         16.4,
@@ -43,6 +43,24 @@ const data = {
       indexAxis: 'x',
       backgroundColor: 'orangered',
       borderColor: 'orange',
+      tension: 0.4,
+    },
+    {
+      label: "Room Temperature (External)",
+      data: [
+        30,
+        22,
+        25,
+        19,
+        18.5,
+        19.5,
+        20,
+        24
+      ],
+      fill: false,
+      indexAxis: 'x',
+      backgroundColor: 'skyblue',
+      borderColor: 'teal',
       tension: 0.4,
     },
   ],
@@ -68,95 +86,16 @@ const options = {
       suggestedMin: 0,
       suggestedMax: 40,
     },
-    // yAxes: [
-    //   {
-    //     ticks: {
-    //       beginAtZero: true,
-    //     },
-    //   },
-    // ],
   },
 };
 
 const LineChart = () => (
   <>
     <div className='header'>
-      <h1 className='TempDisp'>Terrarium Temperature (°C)</h1>
-      <div className='links'>
-        {/* <a
-          className='btn btn-gh'
-          href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Line.js'
-        >
-          Github Source
-        </a> */}
-      </div>
+      <h1 className='TempDisp'>Terrarium Temperature Readings (°C)</h1>
     </div>
     <Line data={data} options={options} />
-    {/* <Chart /> */}
   </>
 );
 
 export default LineChart;
-
-const series = [
-  // {
-  //   "tri-hourly-data": [
-  //     17.6,
-  //     15.8,
-  //     18.2,
-  //     24.8,
-  //     36.9,
-  //     30.1
-  //   ]
-  // },
-  {
-    "weekly-avg-data": [
-      21.2,
-      16.4,
-      17,
-      22.3,
-      33.7,
-      32.4,
-      24.7,
-      21
-    ]
-  }
-];
-
-
-// return (
-{/* <> */ }
-// <div className="TempDisp">
-// <h1>Terrarium Temperature (°C)</h1>
-{/* <div className="TempGraph">
-          <Chart width={800} height={400} series={series} >
-            <Bars innerPadding={5} groupPadding={10} />
-            <Lines minX={0} maxX={8} minY={0} maxY={40} />
-            <Dots />
-            <Title>Terrarium Temperature (°C)</Title>
-          </Chart> */}
-// </div>
-
-// <h1>Temperature Adjustment (°C)</h1>
-{/* <div class="heater-controls">
-          <HeaterControl
-            currentTemp={state.baskingCurrent}
-            targetTemp={state.baskingTarget}
-            zone="Basking"
-            onAdd={() => adjustBaskingTemp()}
-            onMinus={() => adjustBaskingTemp(false)}
-          />
-
-          <HeaterControl
-            currentTemp={state.hideCurrent}
-            targetTemp={state.hideTarget}
-            zone="Warm Hide"
-            onAdd={() => adjustHideTemp()}
-            onMinus={() => adjustHideTemp(false)}
-          />
-        </div> */}
-{/* </div>
-    </> */}
-  // );
-
-// export default TemperatureHistory;

@@ -16,53 +16,68 @@ const data = {
   ],
   datasets: [
     {
-      label: "% Of time Warm Hide was turned on",
-      data: [43.2, 65.5, 55.5, 73.4, 71.5, 69.5, 55.5],
+      label: "% Of Time Warm Hide Was On",
+      data: [
+        43.2,
+        65.5,
+        55.5,
+        73.4,
+        71.5,
+        69.5,
+        55.5
+      ],
       fill: false,
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "whitesmoke",
-      yAxisID: "y-axis-1",
+      indexAxis: 'x',
+      backgroundColor: 'skyblue',
+      borderColor: 'teal',
+      tension: 0.4,
     },
     {
-      label: "% Of time Basking Hide was turned on",
-      data: [99, 99, 99, 99, 99, 99, 99],
+      label: "% Of Time Basking Hide Was On",
+      data: [
+        99,
+        99,
+        99,
+        99,
+        99,
+        99,
+        99
+      ],
       fill: false,
-      backgroundColor: "white",
-      borderColor: "#ff6200",
-      yAxisID: "y-axis-1",
-    },
-    {
-      label: "Room Temperature",
-      data: [30, 22, 25, 19, 18.5, 19.5, 20],
-      fill: false,
-      backgroundColor: "rgb(255, 99, 132)",
-      borderColor: "#03cafc",
-      yAxisID: "y-axis-2",
+      backgroundColor: "orangered",
+      borderColor: "orange",
     },
   ],
 };
 
 const options = {
+  responsive: true,
+  maintainApectRatio: true,
+  color: 'gainsboro',
+
+  plugins: {
+    legend: {
+      align: 'center',
+      position: 'bottom',
+      labels: {
+
+      },
+    },
+  },
+
   scales: {
-    yAxes: [
-      {
-        ticks: {
-          beginAtZero: true,
-        },
-        id: "y-axis-1",
-      },
-      {
-        ticks: {
-          beginAtZero: false,
-        },
-        id: "y-axis-2",
-      },
-    ],
+    y: {
+      suggestedMin: 0,
+      suggestedMax: 100,
+    },
   },
 };
 
 const LineChart = () => (
   <>
+    <div className='header'>
+      <h1 className='TempDisp'>Heat Lamp Readings (%)</h1>
+    </div>
     <Line data={data} options={options} data={data} />
   </>
 );
