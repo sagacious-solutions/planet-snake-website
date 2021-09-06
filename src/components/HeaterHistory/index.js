@@ -47,6 +47,24 @@ const data = {
       backgroundColor: "orangered",
       borderColor: "orange",
     },
+    {
+      label: "Room Temperature (External)",
+      data: [
+        30,
+        22,
+        25,
+        19,
+        18.5,
+        19.5,
+        20,
+        24
+      ],
+      fill: false,
+      indexAxis: 'x',
+      backgroundColor: 'rgb(255, 99, 132)',
+      borderColor: 'yellow',
+      tension: 0.4,
+    },
   ],
 };
 
