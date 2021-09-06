@@ -8,38 +8,47 @@
 }
 // }
 
-.sun-moon-image[wobble="1"] {
+.sun-moon-image[turnToNight="1"] {
   // animation: setNight 1s linear;
-  animation: wobble 1s 1;
+  animation: turnToNight 2s 1;
+}
+.sun-moon-image[TurnToDay="1"] {
+  // animation: setNight 1s linear;
+  animation: TurnToDay 2s 1;
 }
 
 .sun-moon-image.Night {
   transform: rotate(180deg);
 }
 
-// @keyframes setNight {
-//   from {
-//     transform: rotate(0deg);
-//   }
-//   to {
-//     transform: rotate(180deg);
-//   }
-// }
+.sun-moon-image.Day {
+  transform: rotate(0deg);
+}
 
-@keyframes wobble {
-  // 25% {
-  //   transform: rotate(15deg);
-  // }
-  // 50% {
-  //   transform: rotate(-30deg);
-  // }
-  // 75% {
-  //   transform: rotate(5deg);
-  // }
+@keyframes turnToNight {
+  75% {
+    transform: rotate(-30deg);
+  }
   100% {
     transform: rotate(180deg);
   }
 }
+@keyframes TurnToDay {
+  75% {
+    transform: rotate(150deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+// @keyframes TurnToDay {
+//   25% {
+//     transform: rotate(-30deg);
+//   }
+//   100% {
+//     transform: rotate(180deg);
+//   }
+// }
 
 // .image {
 //   display: block;

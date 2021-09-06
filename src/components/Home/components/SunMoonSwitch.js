@@ -5,26 +5,35 @@ import "./SunMoonSwitch.scss";
 const SunMoonSwitch = (props) => {
   const [rotate, setRotate] = React.useState(0);
   const [isDay, setIsDay] = useState(true);
-  const [wobble, setWobble] = React.useState(0);
+  const [turnToNight, setTurnToNight] = React.useState(0);
+  const [turnToDay, setTurnToDay] = React.useState(0);
 
   return (
     <img
       src="images/sunmoonTrans.png"
       alt="Sun Moon Doodad"
       onClick={() => {
-        setWobble(1);
+        props.toggleDayNight();
+
+        if (isDay) {
+          setTurnToNight(1);
+        }
+        if (!isDay) {
+          setTurnToDay(1);
+        }
       }}
       // onClick={() => {
 
-      //   // props.toggleDayNight();
       // }}
       // `
       className={`sun-moon-image ${isDay ? "Day" : "Night"}`}
       onAnimationEnd={() => {
         setIsDay(!isDay);
-        setWobble(0);
+        setTurnToNight(0);
+        setTurnToDay(0);
       }}
-      wobble={wobble}
+      turnToNight={turnToNight}
+      turnToDay={turnToDay}
       isDay
     />
   );
