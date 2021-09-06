@@ -22,7 +22,7 @@ export default function Home(props) {
       <VideoFeed />
       <section className="control-board">
         {/* <SunMoonSwitch onClick={() => alert("Day Night Switch")} /> */}
-        <SunMoonSwitch onClick={() => toggleDayNight()} />
+        <SunMoonSwitch toggleDayNight={toggleDayNight} />
 
         <div className="heater-controls">
           <HeaterControl
