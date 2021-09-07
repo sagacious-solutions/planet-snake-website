@@ -25,9 +25,19 @@
 
 .TempGraph {
   @include dispComp();
+  position: absolute;
+  width: 960px;
+  height: 540px;
 }
 
-.TempDisp {
+canvas {
+  @include dispComp();
+  position: static;
+  width: 960px;
+  height: 540px;
+}
+
+h1.TempDisp {
   @include dispComp();
   // @include bigFont();
   @include smallFont();
@@ -35,6 +45,8 @@
   margin-top: 20px;
   // flex-direction: column;
   justify-content: space-evenly;
+  font-size: 26px;
+  // position: fixed;
 }
 
 h1.TempDisp {

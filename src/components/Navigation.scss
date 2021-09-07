@@ -26,7 +26,13 @@
   @include bigFont();
   color: goldenrod;
   font-size: 26px;
-  
+  position: sticky;
+}
+
+.snek-logo {
+  margin-right: 20px;
+  margin-left: 20px;
+  position: sticky;
 }
 
 .layout {
@@ -34,10 +40,6 @@
   min-height: 100vh;
 }
 
-.snek-logo {
-  margin-right: 20px;
-  margin-left: 20px;
-}
 .snek-button {
   // margin-right: 20px;
   // margin-left: 20px;
