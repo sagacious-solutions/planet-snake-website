@@ -51,6 +51,10 @@ div.heater-gui {
   margin-bottom: 0;
 }
 
+div.sensor-output {
+  margin-top: 500px;
+}
+
 .sensor-output {
   @include buttonFont();
   display: flex;

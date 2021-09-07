@@ -53,7 +53,6 @@ const options = {
   responsive: true,
   maintainApectRatio: true,
   color: '#2a4d61',
-  responsive: true,
   aspectRatio: 2,
   // font: {
   //   size: 16,
