@@ -28,8 +28,8 @@ const data = {
       ],
       fill: false,
       indexAxis: 'x',
-      backgroundColor: 'skyblue',
-      borderColor: 'teal',
+      backgroundColor: '#FFD43B',
+      borderColor: '#306998',
       tension: 0.4,
     },
     {
@@ -44,8 +44,8 @@ const data = {
         99
       ],
       fill: false,
-      backgroundColor: "orangered",
-      borderColor: "orange",
+      backgroundColor: '#FFE873',
+      borderColor: '#4B8BBE',
     },
     {
       label: "Room Temperature (External)",
@@ -61,8 +61,8 @@ const data = {
       ],
       fill: false,
       indexAxis: 'x',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'yellow',
+      backgroundColor: '#646464',
+      borderColor: '#FFD43B',
       tension: 0.4,
     },
   ],

@@ -23,8 +23,8 @@ const data = {
       ],
       fill: false,
       indexAxis: 'x',
-      backgroundColor: 'rgb(255, 99, 132)',
-      borderColor: 'yellow',
+      backgroundColor: '#FFE873',
+      borderColor: '#4B8BBE',
       tension: 0.4,
     },
     {
@@ -41,8 +41,8 @@ const data = {
       ],
       fill: false,
       indexAxis: 'x',
-      backgroundColor: 'orangered',
-      borderColor: 'orange',
+      backgroundColor: '#306998',
+      borderColor: '#FFD43B',
       tension: 0.4,
     },
 
@@ -53,8 +53,8 @@ const options = {
   responsive: true,
   maintainApectRatio: true,
   color: '#2a4d61',
-  // font: {
-  //   size: 16,
+  // layout: {
+  //   paddingBottom: '5em',
   // },
 
   plugins: {
