@@ -28,8 +28,13 @@
   // justify-content: space-around;
   @include dispComp();
   @include buttonFont();
-  background-color: whitesmoke;
-  max-width: 1200px;
+  border: none;
+  border-radius: 29px;
+  // color: #306998;
+  color: #FFD43B;
+  background-color: goldenrod;
+  // background-color: #FFD43B;
+  max-width: 960px;
 }
 
 .heater-control {
@@ -38,8 +43,39 @@
   // background-color: goldenrod;
 }
 
+h2 {
+  margin-top: 1em;
+}
+
+div.heater-gui {
+  margin-bottom: 0;
+}
+
 .sensor-output {
+  @include buttonFont();
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: center;
   // align-content: space-around;
+}
+
+p.sensor-readout {
+  font-size: 28px;
+  margin-left: 2.5em;
+  margin-right: 2.5em;
+}
+
+#sunMoonYT {
+  background-color: goldenrod;
+  border: none;
+  border-radius: 29px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // height: 100%;
+}
+
+main {
+  height: 43rem;
+  min-width: 100%;
 }

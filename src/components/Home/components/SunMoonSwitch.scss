@@ -3,8 +3,17 @@
 //     animation: setNight 0.5s linear;
 //   }
 .sun-moon-image {
-  width: 250px;
-  height: 250px;
+  // display: flex;
+  // align-items: baseline;
+  // flex-direction: column;
+  // justify-content: center;
+  // justify-items: center;
+  margin-top: 6em;
+  margin-bottom: 6em;
+  margin-left: 6em;
+  margin-right: 6em;
+  width: 200px;
+  height: 100%;
 }
 // }
 

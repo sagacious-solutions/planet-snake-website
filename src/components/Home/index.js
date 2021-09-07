@@ -19,37 +19,40 @@ export default function Home(props) {
 
   return (
     <>
-      <VideoFeed />
-      <section className="control-board">
-        {/* <SunMoonSwitch onClick={() => alert("Day Night Switch")} /> */}
+      <div id="sunMoonYT">
         <SunMoonSwitch toggleDayNight={toggleDayNight} />
+        <VideoFeed />
 
-        <div className="heater-controls">
-          <HeaterControl
-            currentTemp={state.baskingCurrent}
-            targetTemp={state.baskingTarget}
-            zone="Basking"
-            onAdd={() => adjustBaskingTemp()}
-            onMinus={() => adjustBaskingTemp(false)}
-          />
+        <section className="control-board">
+          {/* <SunMoonSwitch onClick={() => alert("Day Night Switch")} /> */}
 
-          <HeaterControl
-            currentTemp={state.hideCurrent}
-            targetTemp={state.hideTarget}
-            zone="Warm Hide"
-            onAdd={() => adjustHideTemp()}
-            onMinus={() => adjustHideTemp(false)}
-          />
-        </div>
+          <div className="heater-controls">
+            <HeaterControl
+              currentTemp={state.baskingCurrent}
+              targetTemp={state.baskingTarget}
+              zone="Basking"
+              onAdd={() => adjustBaskingTemp()}
+              onMinus={() => adjustBaskingTemp(false)}
+            />
 
-        <div className="sensor-output">
-          <DisplaySensorData
-            zone={"Cool Hide"}
-            temperature={`${state.coolCurrent}°c`}
-          />
-          <DisplaySensorData zone={"Humidity"} temperature={"65% R/H"} />
-        </div>
-      </section>
+            <HeaterControl
+              currentTemp={state.hideCurrent}
+              targetTemp={state.hideTarget}
+              zone="Warm Hide"
+              onAdd={() => adjustHideTemp()}
+              onMinus={() => adjustHideTemp(false)}
+            />
+          </div>
+        </section>
+      </div>
+
+      <div className="sensor-output">
+        <DisplaySensorData
+          zone={"Cool Hide"}
+          temperature={`${state.coolCurrent}°c`}
+        />
+        <DisplaySensorData zone={"Humidity"} temperature={"65% R/H"} />
+      </div>
     </>
   );
 }
