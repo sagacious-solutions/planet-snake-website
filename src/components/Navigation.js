@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     backgroundColor: "gainsboro",
     marginTop: "60px", // ADJUSTS PAGE HEIGHT FROM TOP
-    height: "100%", // Extends background colour down
+    height: "3000px", // Extends background colour down
     width: "80%",
     position: "static",
   },
@@ -144,9 +144,7 @@ export default function NavigationDrawer() {
             alt="snek-logo"
             onClick={() => alert("haha same!")}
           />
-          <h2 className="header">
-            Planet Snake: Sunny's Terrarium
-          </h2>
+          <h2 className="header">Planet Snake: Sunny's Terrarium</h2>
         </Toolbar>
       </AppBar>
       <Drawer

@@ -1,24 +1,24 @@
 @mixin dispComp {
-  display:flex;
+  display: flex;
   justify-content: center;
-  color: #2a4d61
+  color: #2a4d61;
 }
 
 @mixin bigFont {
   color: #2a4d61;
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   font-size: large;
 }
 
 @mixin smallFont {
   color: #2a4d61;
-  font-family: 'Share Tech', sans-serif;
+  font-family: "Share Tech", sans-serif;
   font-size: small;
 }
 
 @mixin buttonFont {
   color: #2a4d61;
-  font-family: 'Oxanium', cursive;
+  font-family: "Oxanium", cursive;
   font-size: small;
 }
 
@@ -30,7 +30,7 @@
 }
 
 header.App-header {
-  background-color: gainsboro,
+  background-color: gainsboro;
 }
 
 .snek-logo {
@@ -48,4 +48,8 @@ header.App-header {
   // margin-right: 20px;
   // margin-left: 20px;
   width: 25px;
+}
+
+html {
+  overflow: hidden;
 }
