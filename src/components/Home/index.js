@@ -54,7 +54,10 @@ export default function Home(props) {
           zone={"Cool Hide"}
           temperature={`${state.coolCurrent}°c`}
         />
-        <DisplaySensorData zone={"Humidity"} temperature={"65% R/H"} />
+        <DisplaySensorData
+          zone={"Humidity"}
+          temperature={`${state.humidityCurrent}% R/H`}
+        />
       </div>
     </>
   );
