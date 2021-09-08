@@ -20,7 +20,7 @@ const data = {
       data: [43.2, 65.5, 55.5, 73.4, 71.5, 69.5, 55.5],
       fill: false,
       // indexAxis: "x",
-      backgroundColor: "#FFD43B",
+      backgroundColor: "#306998",
       borderColor: "#306998",
       tension: 0.4,
       yAxisID: "y-axis-1",
@@ -29,8 +29,8 @@ const data = {
       label: "% Of Time Basking Hide Was On",
       data: [99, 99, 99, 99, 99, 99, 99],
       fill: false,
-      backgroundColor: "#FFE873",
-      borderColor: "#4B8BBE",
+      backgroundColor: "red",
+      borderColor: "red",
       yAxisID: "y-axis-1",
     },
     {
@@ -38,8 +38,8 @@ const data = {
       data: [30, 22, 25, 19, 18.5, 19.5, 20, 24],
       fill: false,
       // indexAxis: "x",
-      backgroundColor: "#646464",
-      borderColor: "#FFD43B",
+      backgroundColor: "green",
+      borderColor: "green",
       tension: 0.4,
       yAxisID: "y-axis-2",
     },
@@ -70,7 +70,7 @@ const options = {
 const LineChart = () => (
   <>
     <div className="header">
-      <h1 className="TempDisp">Heat Lamp Readings (%)</h1>
+      <h1 className="TempDisp">Heater Run Time %</h1>
     </div>
     <Line data={data} options={options} data={data} />
   </>
