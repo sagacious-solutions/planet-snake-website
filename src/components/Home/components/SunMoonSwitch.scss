@@ -35,6 +35,26 @@
   transform: rotate(0deg);
 }
 
+.sun-moon-image[TurnToSpooky="1"] {
+  // animation: setNight 1s linear;
+  animation: TurnToSpooky 5s 1;
+}
+
+@keyframes TurnToSpooky {
+  25% {
+    transform: rotate(-30deg);
+  }
+  // 100% {
+  //   transform: rotate(180deg);
+  // }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(3600deg);
+  }
+}
+
 @keyframes turnToNight {
   75% {
     transform: rotate(-30deg);

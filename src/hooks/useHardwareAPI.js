@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 const api_network_address = `http://192.168.1.243:8345`;
 axios.defaults.baseURL = api_network_address;
 
@@ -12,13 +13,24 @@ export default function useHardwareAPI() {
     coolCurrent: 5,
     humidityCurrent: 0,
     dayLightOn: true,
+    isSpooky: false,
   });
+
+  // axios.listen(8899, () => {
+  //   console.log("Server started at port 8899");
+  // });
+
+  const seconds = 1000; // For setTimeouts
 
   const temperatureAdjust = 0.5; // The amount to change the temperature by on all adjustments
 
   useEffect(() => {
     updateCurrent();
-  }, [state.dayLightOn]);
+    const interval = setInterval(() => {
+      updateCurrent();
+    }, 1 * seconds);
+    return () => clearInterval(interval);
+  }, []);
 
   ///////////////////////////////////////////////////////
 
@@ -28,9 +40,7 @@ export default function useHardwareAPI() {
       .then((res) => {
         updateCurrentTemperatures(res);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => {});
 
     getTargetConfig()
       .then((res) => {
@@ -65,8 +75,9 @@ export default function useHardwareAPI() {
         hideCurrent: res.data.hideCurrent,
         coolCurrent: res.data.coolCurrent,
         humidityCurrent: res.data.humidityCurrent,
+        isSpooky: res.data.isSpooky,
       };
-
+      console.log(newState);
       return newState;
     });
   };
@@ -74,12 +85,14 @@ export default function useHardwareAPI() {
   ////////////////////////// WORKING HERE //////////////////////////////////////////
   ///////////////////////////////////////////////////////
 
-  const putTargetConfig = () => {
-    return axios.put("/targetconfig", {
-      baskingTarget: state.baskingTarget,
-      hideTarget: state.hideTarget,
-    });
-  };
+  // const putTargetConfig = () => {
+  //   return axios
+  //     .put("/targetconfig", {
+  //       baskingTarget: state.baskingTarget,
+  //       hideTarget: state.hideTarget,
+  //     })
+  //     .catch((err) => {});
+  // };
 
   // by default inscreases temperature but decreases if its false
   // THIS NEEDS TO BE REFACTORED INTO A SINGLE FUNCTIOn
@@ -128,24 +141,9 @@ export default function useHardwareAPI() {
   ///////////////////////////////////////////////////////////////////////////////
   /// THIS will trigger when the user hits plus or minus in the browser
   //////////////////////////////////////////////////////////
-  useEffect(() => {
-    putTargetConfig();
-  }, [adjustBaskingTemp]);
-
-  // const decreaseBaskingTemp = () => {
-  //   console.log("decrease basking");
-
-  //   setState((classicState) => {
-  //     const newState = {
-  //       ...classicState,
-  //       baskingTarget: classicState.baskingTarget - temperatureAdjust,
-  //     };
-
-  //     return newState;
-  //   });
-
-  //   // return axios.post("/baskingtargetup");
-  // };
+  // useEffect(() => {
+  //   putTargetConfig();
+  // }, [adjustBaskingTemp]);
 
   const toggleDayNight = () => {
     console.log("Toggle Day Night Clicked");
@@ -167,8 +165,9 @@ export default function useHardwareAPI() {
     return axios.get(target);
   };
 
+  /// THIS CAUSES AN INFINITE RENDER LOOP
   // updateCurrent();
-  // setInterval(updateCurrent, 30000);
+  // setInterval(updateCurrent, 30 * seconds);
 
   return {
     state,

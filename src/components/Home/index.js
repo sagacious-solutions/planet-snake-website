@@ -20,7 +20,10 @@ export default function Home(props) {
   return (
     <>
       <div id="sunMoonYT">
-        <SunMoonSwitch toggleDayNight={toggleDayNight} />
+        <SunMoonSwitch
+          toggleDayNight={toggleDayNight}
+          isSpooky={state.isSpooky}
+        />
         <VideoFeed />
 
         <section className="control-board">
