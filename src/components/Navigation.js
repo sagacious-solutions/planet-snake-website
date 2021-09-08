@@ -31,6 +31,8 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "gainsboro",
     marginTop: "60px", // ADJUSTS PAGE HEIGHT FROM TOP
     height: "100%", // Extends background colour down
+    width: "80%",
+    position: "static",
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1, //hamburger menu icon
