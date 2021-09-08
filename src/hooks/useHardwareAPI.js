@@ -24,6 +24,8 @@ export default function useHardwareAPI() {
 
   const temperatureAdjust = 0.5; // The amount to change the temperature by on all adjustments
 
+  ////////////////////////////////////////////////////////////////
+  // sets the interval to watch for spooky flag
   useEffect(() => {
     updateCurrent();
     const interval = setInterval(() => {
