@@ -1,58 +1,67 @@
-import React from 'react';
-import { Line } from 'react-chartjs-2';
+import React from "react";
+import { Line } from "react-chartjs-2";
 // import { Chart } from 'chart.js/auto';
 
 // This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
 
-const Chart = require('chart.js');
+const Chart = require("chart.js");
 
 const data = {
-  labels: ['00h', '03h', '06h', '09h', '12h', '15h', '18h', '21h'],
+  labels: [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ],
 
   datasets: [
     {
-      label: 'Current Temperature Reading (w/in Terrarium)',
-      data: [
-        17.6,
-        15.8,
-        18.2,
-        24.8,
-        36.9,
-        30.1
-      ],
+      label: "Basking Spot",
+      data: [24, 21, 27, 24.5, 23.3, 30.1, 24],
       fill: false,
-      indexAxis: 'x',
-      backgroundColor: '#FFE873',
-      borderColor: '#4B8BBE',
+      indexAxis: "x",
+      backgroundColor: "red",
+      borderColor: "red",
       tension: 0.4,
     },
     {
-      label: 'Weekly Avg CTR (w/in Terrarium)',
-      data: [
-        21.2,
-        16.4,
-        17,
-        22.3,
-        33.7,
-        32.4,
-        24.7,
-        21
-      ],
+      label: "Warm Hide",
+      data: [32, 32, 31.5, 33, 32, 32, 32.5],
       fill: false,
-      indexAxis: 'x',
-      backgroundColor: '#306998',
-      borderColor: '#FFD43B',
+      indexAxis: "x",
+      backgroundColor: "orange",
+      borderColor: "orange",
       tension: 0.4,
     },
-
+    {
+      label: "Cool Hide",
+      data: [21, 19, 20, 21, 23, 23, 22],
+      fill: false,
+      indexAxis: "x",
+      backgroundColor: "blue",
+      borderColor: "blue",
+      tension: 0.4,
+    },
+    {
+      label: "Room Temperature",
+      data: [21.2, 20, 21.5, 18, 19, 23, 22.5, 21],
+      fill: false,
+      indexAxis: "x",
+      backgroundColor: "green",
+      borderColor: "Green",
+      tension: 0.4,
+    },
   ],
 };
 
 const options = {
   responsive: true,
   maintainApectRatio: true,
-  color: '#2a4d61',
+  color: "#2a4d61",
   aspectRatio: 2,
   // font: {
   //   size: 16,
@@ -60,11 +69,9 @@ const options = {
 
   plugins: {
     legend: {
-      align: 'center',
-      position: 'bottom',
-      labels: {
-
-      },
+      align: "center",
+      position: "bottom",
+      labels: {},
     },
   },
 
@@ -78,8 +85,10 @@ const options = {
 
 const LineChart = () => (
   <>
-    <div className='header'>
-      <h1 className='TempDisp'>Terrarium Temperature Readings (°C)</h1>
+    <div className="header">
+      <h1 className="TempDisp">
+        Terrarium Daily Average Temperature Readings (°C)
+      </h1>
     </div>
     <Line data={data} options={options} />
   </>
