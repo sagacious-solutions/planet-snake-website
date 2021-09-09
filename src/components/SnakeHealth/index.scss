@@ -4,3 +4,20 @@
   margin-top: 2%;
   justify-content: center;
 }
+
+@mixin smallFont {
+  color: #2a4d61;
+  font-family: "Share Tech", sans-serif;
+  font-size: large;
+}
+
+.donutChart1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @include smallFont();
+  text-align: center;
+  width: 600px;
+  margin-top: 4em;
+  margin-left: 40em;
+}
