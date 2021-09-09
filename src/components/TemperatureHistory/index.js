@@ -5,8 +5,6 @@ import { Line } from "react-chartjs-2";
 // This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
 
-const Chart = require("chart.js");
-
 const data = {
   labels: [
     "Sunday",
@@ -90,7 +88,9 @@ const LineChart = () => (
         Terrarium Daily Average Temperature Readings (°C)
       </h1>
     </div>
-    <Line data={data} options={options} />
+    <div class="graphMargin1">
+      <Line data={data} options={options} />
+    </div>
   </>
 );
 
