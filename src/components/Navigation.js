@@ -225,7 +225,7 @@ export default function NavigationDrawer() {
                 alt="snek-logo"
               />
             </ListItemIcon>
-            <ListItemText primary={"Snake Health"} />
+            <ListItemText primary={"Sunny Time"} />
           </ListItem>
         </List>
         <Divider />
