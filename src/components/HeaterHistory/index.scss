@@ -26,6 +26,10 @@
   @include dispComp();
 }
 
+.graphMargin2 {
+  margin-left: 20em;
+}
+
 .TempDisp {
   @include dispComp();
   // @include bigFont();

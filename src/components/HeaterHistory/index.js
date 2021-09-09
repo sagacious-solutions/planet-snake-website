@@ -72,7 +72,9 @@ const LineChart = () => (
     <div className="header">
       <h1 className="TempDisp">Heater Run Time %</h1>
     </div>
-    <Line data={data} options={options} data={data} />
+    <div class="graphMargin2">
+      <Line data={data} options={options} />
+    </div>
   </>
 );
 
