@@ -23,6 +23,7 @@ import Home from "./Home";
 import TemperatureHistory from "./TemperatureHistory";
 import HeaterHistory from "./HeaterHistory";
 import SnakeHealth from "./SnakeHealth";
+import SnakeState from "./SnakeState";
 
 const drawerWidth = 260;
 const useStyles = makeStyles((theme) => ({
@@ -215,7 +216,7 @@ export default function NavigationDrawer() {
             button
             key={"snakeHealth"}
             onClick={() => {
-              setPage(<SnakeHealth />);
+              setPage(<SnakeState />);
             }}
           >
             <ListItemIcon>
@@ -225,7 +226,7 @@ export default function NavigationDrawer() {
                 alt="snek-logo"
               />
             </ListItemIcon>
-            <ListItemText primary={"Sunny Time"} />
+            <ListItemText primary={"Snake State"} />
           </ListItem>
         </List>
         <Divider />
