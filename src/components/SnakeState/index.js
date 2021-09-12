@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -6,6 +6,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
+import useDatabaseAPI from "../../hooks/useDatabaseAPI";
+import { format } from "timeago.js";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -49,8 +51,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ScrollableTabsButtonAuto() {
+  const { getAllPoops } = useDatabaseAPI();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
+  const [state, setState] = useState({
+    poops_found: "UNINITIALIZED",
+  });
+
+  // THIS IS TO GET BACK AND SEPERATE OUT DATABASE VALUES FOR LAST POOP FOUND
+  useEffect(() => {
+    getAllPoops().then((res) => {
+      const timestamps = [];
+
+      for (let timeObj of res.data) {
+        console.log(timeObj);
+        timestamps.push(timeObj.time_created);
+      }
+
+      console.log(timestamps);
+
+      setState((classicState) => {
+        return { ...classicState, poops_found: timestamps };
+      });
+    });
+  }, [setState]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -78,7 +102,7 @@ export default function ScrollableTabsButtonAuto() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Time Since Last Eating = NULL
+        Last Poop Found = {format(state.poops_found[0])}
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
