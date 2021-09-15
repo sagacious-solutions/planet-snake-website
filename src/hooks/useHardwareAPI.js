@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
-const api_network_address = process.env.HARDWARE_API_ADDY;
-// axios.defaults.baseURL = api_network_address;
+const api_network_address = process.env.REACT_APP_HARDWARE_API_ADDY;
+axios.defaults.baseURL = api_network_address;
 
 export default function useHardwareAPI() {
   const [state, setState] = useState({
