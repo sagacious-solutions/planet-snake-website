@@ -2,7 +2,7 @@
 
 This is a React.JS front end to connect to Planet Snake Hardware API.
 
-<img src="./documentation/images/dashboardScreenshot.png" width="100%" />
+<img src="./documentation/images/sunMoonSwitch.gif" width="100%" />
 This is the main landing page. The lights in the terrarium can be switched between Day and Night mode by hitting the sun and moon ying yang. It will rotate to show the current state of the terrarium when clicked. The right hand side has the current temperatures in the controlled areas as well as the ability to set the target temperature for those zones.
 
 <img src="./documentation/images/runTimeGraph.png" width="100%" />
