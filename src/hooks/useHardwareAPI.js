@@ -3,8 +3,8 @@ import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
 
-const api_network_address = process.env.REACT_APP_HARDWARE_API_ADDY;
-axios.defaults.baseURL = api_network_address;
+const hardware_address = process.env.REACT_APP_HARDWARE_API_ADDY;
+// axios.defaults.baseURL = api_network_address;
 
 export default function useHardwareAPI() {
   const [state, setState] = useState({
@@ -40,7 +40,7 @@ export default function useHardwareAPI() {
 
   // Updates the current temperatures from the api
   const updateCurrent = () => {
-    getTemperatureFromApi("/current")
+    getTemperatureFromApi(`${hardware_address}/current`)
       .then((res) => {
         updateCurrentTemperatures(res);
       })
@@ -158,11 +158,11 @@ export default function useHardwareAPI() {
       return newState;
     });
 
-    return axios.get("/toggledaynight");
+    return axios.get(`${hardware_address}/toggledaynight`);
   };
 
   const getTargetConfig = () => {
-    return axios.get("/targetconfig");
+    return axios.get(`${hardware_address}/targetconfig`);
   };
 
   const getTemperatureFromApi = (target) => {
