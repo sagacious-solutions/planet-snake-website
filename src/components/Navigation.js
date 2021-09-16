@@ -22,7 +22,6 @@ import "./Navigation.scss";
 import Home from "./Home";
 import TemperatureHistory from "./TemperatureHistory";
 import HeaterHistory from "./HeaterHistory";
-import SnakeHealth from "./SnakeHealth";
 import SnakeState from "./SnakeState";
 
 const drawerWidth = 260;
