@@ -28,14 +28,15 @@ export default function useDatabaseAPI() {
     return timestamps;
   };
 
+  // For queries that are lists of numbers, this breaks the objects out of the array into an array of numbers to go into state
   const processDataToArray = (res, key) => {
     const values = [];
 
-    console.log(res);
+    for (let obj of res.data) {
+      values.push(obj[key]);
+    }
 
-    // for (let obj of res.data) {
-    //   // values.push(obj[key]);
-    // }
+    return values;
   };
 
   const updateAll = () => {
@@ -48,9 +49,10 @@ export default function useDatabaseAPI() {
       getAllShedsImminent(),
       getAllShedsComplete(),
       getAllWeightMeasures(),
+      getAllLengthMeasures(),
     ]).then((responses) => {
       setState((classicState) => {
-        console.log(responses[7].data);
+        // console.log(responses[7].data);
         return {
           ...classicState,
           poops_found: fetchTimeStamps(responses[0]),
@@ -60,10 +62,8 @@ export default function useDatabaseAPI() {
           rats_ignored: fetchTimeStamps(responses[4]),
           sheds_imminent: fetchTimeStamps(responses[5]),
           sheds_complete: fetchTimeStamps(responses[6]),
-          weight_measures: processDataToArray(
-            responses[7].data,
-            "snake_weight"
-          ),
+          weight_measures: processDataToArray(responses[7], "snake_weight"),
+          length_measures: processDataToArray(responses[8], "snake_length"),
         };
       });
     });
@@ -102,6 +102,9 @@ export default function useDatabaseAPI() {
   };
   const getAllWeightMeasures = () => {
     return axios.get(`${db_address}/weight_measures`);
+  };
+  const getAllLengthMeasures = () => {
+    return axios.get(`${db_address}/length_measures`);
   };
 
   return { updatePoops, getAllUrateFound, state, updateAll };

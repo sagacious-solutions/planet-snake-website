@@ -60,16 +60,20 @@ export default function DataDisplay() {
       event: "Last Weigh In",
       mostRecent: `${state.weight_measures[0]} Grams`,
     },
+    {
+      id: 9,
+      event: "Last Length Measurement",
+      mostRecent: `${state.length_measures[0]} +/-3 inches`,
+    },
   ];
 
   return (
-    <div style={{ height: 600, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[5]}
-      />
-    </div>
+    <DataGrid
+      rows={rows}
+      columns={columns}
+      pageSize={9}
+      rowsPerPageOptions={[5]}
+      style={{ height: 600, width: "100%" }}
+    />
   );
 }
