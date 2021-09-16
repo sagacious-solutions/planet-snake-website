@@ -8,6 +8,7 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import useDatabaseAPI from "../../hooks/useDatabaseAPI";
 import { format } from "timeago.js";
+import DataDisplay from "./Components/DataDisplay";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -54,9 +55,6 @@ export default function ScrollableTabsButtonAuto() {
   const { getAllPoops } = useDatabaseAPI();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-  const [state, setState] = useState({
-    poops_found: "UNINITIALIZED",
-  });
 
   // THIS IS TO GET BACK AND SEPERATE OUT DATABASE VALUES FOR LAST POOP FOUND
   useEffect(() => {
@@ -80,6 +78,23 @@ export default function ScrollableTabsButtonAuto() {
     setValue(newValue);
   };
 
+  function DataToDisplay(props) {
+    return (
+      <>
+        <table>
+          <tr>
+            <th>Last Poop Found</th>
+            <th>Last Urate Found</th>
+          </tr>
+          <tr>
+            <td>{format(state.poops_found[0])}</td>
+            <td>{format(state.urates_found[0])}</td>
+          </tr>
+        </table>
+      </>
+    );
+  }
+
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
@@ -102,7 +117,7 @@ export default function ScrollableTabsButtonAuto() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        Last Poop Found = {format(state.poops_found[0])}
+        <DataDisplay />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
