@@ -13,6 +13,9 @@ export default function useDatabaseAPI() {
   const getAllPoops = () => {
     return axios.get(`${db_address}/poop_found`);
   };
+  const getAllUrateFound = () => {
+    return axios.get(`${db_address}/urate_found`);
+  };
 
-  return { getAllPoops };
+  return { getAllPoops, getAllUrateFound };
 }
