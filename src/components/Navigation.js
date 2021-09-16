@@ -187,7 +187,7 @@ export default function NavigationDrawer() {
 
           <ListItem
             button
-            key={"graphs"}
+            key={"graphs1"}
             onClick={() => {
               // alert("HAHA! Graphs!");
               setPage(<TemperatureHistory />);
@@ -200,7 +200,7 @@ export default function NavigationDrawer() {
           </ListItem>
           <ListItem
             button
-            key={"graphs"}
+            key={"graphs2"}
             onClick={() => {
               // alert("HAHA! Graphs!");
               setPage(<HeaterHistory />);
