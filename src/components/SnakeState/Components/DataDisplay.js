@@ -8,7 +8,9 @@ import useDatabaseAPI from "../../../hooks/useDatabaseAPI";
 export default function DataDisplay() {
   const { state, updateAll } = useDatabaseAPI();
 
-  useEffect(() => updateAll(), []);
+  useEffect(() => {
+    updateAll();
+  }, []);
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -42,13 +44,30 @@ export default function DataDisplay() {
       event: "Rat Ignored",
       mostRecent: format(state.rats_ignored[0]),
     },
+
+    {
+      id: 6,
+      event: "Shed Imminent",
+      mostRecent: format(state.sheds_imminent[0]),
+    },
+    {
+      id: 7,
+      event: "Shed Complete",
+      mostRecent: format(state.sheds_complete[0]),
+    },
+    {
+      id: 8,
+      event: "Last Weigh In",
+      mostRecent: `${state.weight_measures[0]} Grams`,
+    },
   ];
+
   return (
-    <div style={{ height: 400, width: "100%" }}>
+    <div style={{ height: 600, width: "100%" }}>
       <DataGrid
         rows={rows}
         columns={columns}
-        pageSize={5}
+        pageSize={10}
         rowsPerPageOptions={[5]}
       />
     </div>

@@ -12,6 +12,9 @@ export default function useDatabaseAPI() {
     rats_offered: "UNINITIALIZED",
     rats_ate: "UNINITIALIZED",
     rats_ignored: "UNINITIALIZED",
+    sheds_imminent: "UNINITIALIZED",
+    sheds_complete: "UNINITIALIZED",
+    weight_measures: "UNINITIALIZED",
   });
 
   // Generalized function to fetch all timestamps from any bool snake state
@@ -25,6 +28,16 @@ export default function useDatabaseAPI() {
     return timestamps;
   };
 
+  const processDataToArray = (res, key) => {
+    const values = [];
+
+    console.log(res);
+
+    // for (let obj of res.data) {
+    //   // values.push(obj[key]);
+    // }
+  };
+
   const updateAll = () => {
     Promise.all([
       getAllPoops(),
@@ -32,9 +45,12 @@ export default function useDatabaseAPI() {
       getAllRatsOffered(),
       getAllRatsAte(),
       getAllRatsIgnored(),
+      getAllShedsImminent(),
+      getAllShedsComplete(),
+      getAllWeightMeasures(),
     ]).then((responses) => {
       setState((classicState) => {
-        console.log(responses);
+        console.log(responses[7].data);
         return {
           ...classicState,
           poops_found: fetchTimeStamps(responses[0]),
@@ -42,6 +58,12 @@ export default function useDatabaseAPI() {
           rats_offered: fetchTimeStamps(responses[2]),
           rats_ate: fetchTimeStamps(responses[3]),
           rats_ignored: fetchTimeStamps(responses[4]),
+          sheds_imminent: fetchTimeStamps(responses[5]),
+          sheds_complete: fetchTimeStamps(responses[6]),
+          weight_measures: processDataToArray(
+            responses[7].data,
+            "snake_weight"
+          ),
         };
       });
     });
@@ -71,6 +93,15 @@ export default function useDatabaseAPI() {
   };
   const getAllRatsIgnored = () => {
     return axios.get(`${db_address}/rats_ignored`);
+  };
+  const getAllShedsImminent = () => {
+    return axios.get(`${db_address}/sheds_imminent`);
+  };
+  const getAllShedsComplete = () => {
+    return axios.get(`${db_address}/sheds_complete`);
+  };
+  const getAllWeightMeasures = () => {
+    return axios.get(`${db_address}/weight_measures`);
   };
 
   return { updatePoops, getAllUrateFound, state, updateAll };
