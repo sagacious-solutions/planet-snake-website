@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -7,7 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import useDatabaseAPI from "../../hooks/useDatabaseAPI";
-import { format } from "timeago.js";
+// import { format } from "timeago.js";
 import DataDisplay from "./Components/DataDisplay";
 
 function TabPanel(props) {
@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
 // START OF MAIN COMPONENT
 //////////////////////////////////////////////////////////////////////////
 export default function ScrollableTabsButtonAuto() {
-  const { updatePoops, state, updateAll } = useDatabaseAPI();
+  const { state, updateAll } = useDatabaseAPI();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -67,23 +67,6 @@ export default function ScrollableTabsButtonAuto() {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
-  function DataToDisplay(props) {
-    return (
-      <>
-        <table>
-          <tr>
-            <th>Last Poop Found</th>
-            <th>Last Urate Found</th>
-          </tr>
-          <tr>
-            <td>{format(state.poops_found[0])}</td>
-            <td>{format(state.urates_found[0])}</td>
-          </tr>
-        </table>
-      </>
-    );
-  }
 
   return (
     <div className={classes.root}>
