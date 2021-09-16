@@ -6,7 +6,27 @@ dotenv.config();
 const db_address = process.env.REACT_APP_DATABASE_API_ADDY;
 
 export default function useDatabaseAPI() {
-  const [state, setState] = useState({});
+  const [state, setState] = useState({
+    poops_found: "UNINITIALIZED",
+    urates_found: "UNINITIALIZED",
+  });
+
+  const updatePoops = () => {
+    getAllPoops().then((res) => {
+      const timestamps = [];
+
+      for (let timeObj of res.data) {
+        console.log(timeObj);
+        timestamps.push(timeObj.time_created);
+      }
+
+      console.log(timestamps);
+
+      setState((classicState) => {
+        return { ...classicState, poops_found: timestamps };
+      });
+    });
+  };
 
   const seconds = 1000; // For setTimeouts
 
@@ -17,5 +37,5 @@ export default function useDatabaseAPI() {
     return axios.get(`${db_address}/urate_found`);
   };
 
-  return { getAllPoops, getAllUrateFound };
+  return { updatePoops, getAllUrateFound, state };
 }

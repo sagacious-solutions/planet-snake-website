@@ -52,27 +52,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function ScrollableTabsButtonAuto() {
-  const { getAllPoops } = useDatabaseAPI();
+  const { updatePoops, state } = useDatabaseAPI();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
   // THIS IS TO GET BACK AND SEPERATE OUT DATABASE VALUES FOR LAST POOP FOUND
   useEffect(() => {
-    getAllPoops().then((res) => {
-      const timestamps = [];
-
-      for (let timeObj of res.data) {
-        console.log(timeObj);
-        timestamps.push(timeObj.time_created);
-      }
-
-      console.log(timestamps);
-
-      setState((classicState) => {
-        return { ...classicState, poops_found: timestamps };
-      });
-    });
-  }, [setState]);
+    updatePoops();
+  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
