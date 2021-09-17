@@ -23,7 +23,11 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          <Typography>{children}</Typography>
+          {/* https://stackoverflow.com/questions/41928567/div-cannot-appear-as-a-descendant-of-p 
+          React was throwing error "<div> cannot appear as a descendant of <p>"
+          Changing this to a span fixed this error
+          */}
+          <Typography component={"span"}>{children}</Typography>
         </Box>
       )}
     </div>
