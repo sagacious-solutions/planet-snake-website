@@ -15,6 +15,7 @@ export default function useDatabaseAPI() {
     sheds_imminent: "UNINITIALIZED",
     sheds_complete: "UNINITIALIZED",
     weight_measures: "UNINITIALIZED",
+    length_measures: "UNINITIALIZED",
   });
 
   // Generalized function to fetch all timestamps from any bool snake state
@@ -52,7 +53,6 @@ export default function useDatabaseAPI() {
       getAllLengthMeasures(),
     ]).then((responses) => {
       setState((classicState) => {
-        // console.log(responses[7].data);
         return {
           ...classicState,
           poops_found: fetchTimeStamps(responses[0]),
