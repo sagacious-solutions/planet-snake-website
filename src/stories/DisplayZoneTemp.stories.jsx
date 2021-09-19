@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 
-import DisplayZoneTemp from "../components/Home/DisplayZoneTemp";
+import DisplayZoneTemp from "../components/Home/components/DisplayZoneTemp";
 
 export default {
   title: "Homepage/Display Tempture for Zone",
@@ -14,4 +14,4 @@ export default {
 const Template = (args) => <DisplayZoneTemp {...args} />;
 
 export const Exists = Template.bind({});
-Exists.args = { zone: "Cool Side : ", temperature: 18.55 };
+Exists.args = { zone: "Cool Side", temperature: 18.55 };
