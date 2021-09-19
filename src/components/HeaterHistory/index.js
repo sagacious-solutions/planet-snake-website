@@ -1,7 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-// This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
 
 const data = {
@@ -19,7 +18,6 @@ const data = {
       label: "% Of Time Warm Hide Was On",
       data: [43.2, 65.5, 55.5, 73.4, 71.5, 69.5, 55.5],
       fill: false,
-      // indexAxis: "x",
       backgroundColor: "#306998",
       borderColor: "#306998",
       tension: 0.4,
@@ -37,7 +35,6 @@ const data = {
       label: "Room Temperature (External)",
       data: [30, 22, 25, 19, 18.5, 19.5, 20, 24],
       fill: false,
-      // indexAxis: "x",
       backgroundColor: "green",
       borderColor: "green",
       tension: 0.4,

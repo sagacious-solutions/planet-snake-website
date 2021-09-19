@@ -32,9 +32,7 @@
 
 .TempDisp {
   @include dispComp();
-  // @include bigFont();
   @include smallFont();
   margin-top: 80px;
-  // flex-direction: column;
   justify-content: space-evenly;
 }
