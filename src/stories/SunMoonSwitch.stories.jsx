@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 
-import SunMoonSwitch from "../components/Home/SunMoonSwitch";
+import SunMoonSwitch from "../components/Home/components/SunMoonSwitch";
 
 export default {
   title: "Homepage/Day Night Change",

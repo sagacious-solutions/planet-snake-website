@@ -1,7 +1,7 @@
 import React from "react";
 import { action } from "@storybook/addon-actions";
 
-import HeaterControl from "../components/Home/HeaterControl";
+import HeaterControl from "../components/Home/components/HeaterControl";
 
 export default {
   title: "Homepage/Heater Control",

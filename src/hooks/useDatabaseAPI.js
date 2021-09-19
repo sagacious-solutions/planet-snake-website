@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import dotenv from "dotenv";
 dotenv.config();
@@ -18,7 +18,7 @@ export default function useDatabaseAPI() {
     length_measures: "UNINITIALIZED",
   });
 
-  // Generalized function to fetch all timestamps from any bool snake state
+  // For queries on lists of time stamps, this breaks the objects out of the array and into an array of time stamps
   const fetchTimeStamps = (res) => {
     const timestamps = [];
 
@@ -40,6 +40,7 @@ export default function useDatabaseAPI() {
     return values;
   };
 
+  // Updates all values of snake state for landing page of Snake State
   const updateAll = () => {
     Promise.all([
       getAllPoops(),
@@ -77,8 +78,6 @@ export default function useDatabaseAPI() {
     });
   };
 
-  const seconds = 1000; // For setTimeouts
-
   const getAllPoops = () => {
     return axios.get(`${db_address}/poop_found`);
   };
@@ -107,5 +106,5 @@ export default function useDatabaseAPI() {
     return axios.get(`${db_address}/length_measures`);
   };
 
-  return { updatePoops, getAllUrateFound, state, updateAll };
+  return { state, updateAll };
 }
