@@ -12,7 +12,6 @@ const SunMoonSwitch = (props) => {
   // THIS IS SO SPOOKY MODE ONLY RUNS ONCE
   useEffect(() => {
     if (count % 2 === 1) {
-      // alert("Holy Fuck")
       setTimeout(() => setSunMoonImage("images/JackSkellington.png"), 2000);
       setTurnToSpooky(1);
     }
@@ -34,10 +33,6 @@ const SunMoonSwitch = (props) => {
           setTurnToDay(1);
         }
       }}
-      // onClick={() => {
-
-      // }}
-      // `
       className={`sun-moon-image ${isDay ? "Day" : "Night"}`}
       onAnimationEnd={() => {
         if (turnToSpooky === 0) {
@@ -47,29 +42,10 @@ const SunMoonSwitch = (props) => {
         setTurnToDay(0);
         setTurnToSpooky(0);
       }}
-      turnToNight={turnToNight}
-      turnToDay={turnToDay}
-      turnToSpooky={turnToSpooky}
-      isDay
+      turn_to_night={turnToNight}
+      turn_to_day={turnToDay}
+      turn_to_spooky={turnToSpooky}
     />
   );
 };
 export default SunMoonSwitch;
-
-// import React from 'react'
-// import styles from './animated-image.module.scss'
-
-// const Image = () => {
-//   const [wobble, setWobble] = React.useState(0)
-//   return (
-//     <img
-//       className={styles.image}
-//       src="https://source.unsplash.com/random/400x200"
-//       alt="randomised!"
-//       onClick={() => setWobble(1)}
-//       onAnimationEnd={() => setWobble(0)}
-//       wobble={wobble}
-//     />
-//   )
-// }
-// export default Image
