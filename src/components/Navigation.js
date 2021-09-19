@@ -29,14 +29,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     backgroundColor: "gainsboro",
-    marginTop: "60px", // ADJUSTS PAGE HEIGHT FROM TOP
-    height: "3000px", // Extends background colour down
+    marginTop: "60px",
+    height: "3000px",
     width: "80%",
     position: "static",
   },
   appBar: {
-    zIndex: theme.zIndex.drawer + 1, //hamburger menu icon
-    backgroundColor: "#2a4d61", // CHANGE TOP BAR COLOR HERE
+    zIndex: theme.zIndex.drawer + 1,
+    backgroundColor: "#2a4d61",
 
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
@@ -78,7 +78,7 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     width: theme.spacing(0),
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(0), //side bar menu icons (anything >0 = icon display when collapsed)
+      width: theme.spacing(9),
     },
   },
   toolbar: {
@@ -86,12 +86,11 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "flex-end",
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3), //body spacing between header and lice stream
+    padding: theme.spacing(3),
   },
 }));
 
@@ -110,9 +109,6 @@ export default function NavigationDrawer() {
     setOpen(false);
   };
 
-  /////////////////////////////////////////////////////////////////
-  // THIS DECIDES WHAT PAGE TO DISPLAY in the main area
-  ////////////////////////////////////////////////////////////////////
   const displayPage = () => {
     return page;
   };
@@ -188,7 +184,6 @@ export default function NavigationDrawer() {
             button
             key={"graphs1"}
             onClick={() => {
-              // alert("HAHA! Graphs!");
               setPage(<TemperatureHistory />);
             }}
           >
@@ -201,7 +196,6 @@ export default function NavigationDrawer() {
             button
             key={"graphs2"}
             onClick={() => {
-              // alert("HAHA! Graphs!");
               setPage(<HeaterHistory />);
             }}
           >
