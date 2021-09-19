@@ -5,17 +5,42 @@ import { format } from "timeago.js";
 import useDatabaseAPI from "../../../hooks/useDatabaseAPI";
 
 // This react table takes in arrays of time stamps and formats them with timeago's format function
-export default function DataDisplay() {
+export default function LatestDataDisplay() {
   const { state, updateAll } = useDatabaseAPI();
 
   useEffect(() => {
     updateAll();
   }, []);
 
+  const measureAvgTimeBetween = (timeArray) => {
+    let lastTime = timeArray[0];
+    const timeBetween = [];
+
+    if (timeArray === "UNINITIALIZED") {
+      return "No Data";
+    }
+
+    if (timeArray.length === 1) {
+      return "Only one Value";
+    }
+
+    for (let value of timeArray) {
+      if (value !== lastTime) {
+        timeBetween.push(value - lastTime);
+
+        console.log(value - lastTime);
+      }
+
+      // console.log(value);
+    }
+    // console.log(dataIn);
+  };
+
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
     { field: "event", headerName: "Event", width: 200 },
     { field: "mostRecent", headerName: "Most Recent", width: 200 },
+    { field: "avgTimeBetween", headerName: "Avg Time Between", width: 200 },
   ];
 
   const rows = [
@@ -23,6 +48,7 @@ export default function DataDisplay() {
       id: 1,
       event: "Poop Found",
       mostRecent: format(state.poops_found[0]),
+      avgTimeBetween: measureAvgTimeBetween(state.poops_found),
     },
     {
       id: 2,
