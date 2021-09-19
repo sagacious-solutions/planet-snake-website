@@ -27,8 +27,6 @@ export default function Home(props) {
         <VideoFeed />
 
         <section className="control-board">
-          {/* <SunMoonSwitch onClick={() => alert("Day Night Switch")} /> */}
-
           <div className="heater-controls">
             <HeaterControl
               currentTemp={state.baskingCurrent}
