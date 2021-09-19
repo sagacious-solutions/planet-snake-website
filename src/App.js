@@ -1,4 +1,4 @@
-import NavigationDrawer from "./components/Navigation";
+import NavigationDrawer from "./pages/Navigation";
 
 import "./App.css";
 
