@@ -1,8 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-// import { Chart } from 'chart.js/auto';
 
-// This generates a fairly open ended button thats used in multiple places
 import "./index.scss";
 
 const data = {
@@ -61,9 +59,6 @@ const options = {
   maintainApectRatio: true,
   color: "#2a4d61",
   aspectRatio: 2,
-  // font: {
-  //   size: 16,
-  // },
 
   plugins: {
     legend: {

@@ -1,13 +1,4 @@
-// @media (prefers-reduced-motion: no-preference) {
-//   .sun-moon-image[isDay] {
-//     animation: setNight 0.5s linear;
-//   }
 .sun-moon-image {
-  // display: flex;
-  // align-items: baseline;
-  // flex-direction: column;
-  // justify-content: center;
-  // justify-items: center;
   margin-top: 5.6em;
   margin-bottom: 5.6em;
   margin-left: 6em;
@@ -16,14 +7,11 @@
   height: 100%;
   position: static;
 }
-// }
 
 .sun-moon-image[turn_to_night="1"] {
-  // animation: setNight 1s linear;
   animation: turnToNight 2s 1;
 }
 .sun-moon-image[turn_to_day="1"] {
-  // animation: setNight 1s linear;
   animation: TurnToDay 2s 1;
 }
 
@@ -36,7 +24,6 @@
 }
 
 .sun-moon-image[turn_to_spooky="1"] {
-  // animation: setNight 1s linear;
   animation: TurnToSpooky 5s 1;
 }
 
@@ -44,9 +31,6 @@
   25% {
     transform: rotate(-30deg);
   }
-  // 100% {
-  //   transform: rotate(180deg);
-  // }
   from {
     transform: rotate(0deg);
   }
@@ -71,34 +55,3 @@
     transform: rotate(360deg);
   }
 }
-// @keyframes TurnToDay {
-//   25% {
-//     transform: rotate(-30deg);
-//   }
-//   100% {
-//     transform: rotate(180deg);
-//   }
-// }
-
-// .image {
-//   display: block;
-//   margin: 0 auto;
-// }
-// .image[wobble='1'] {
-//   animation: wobble 1s 1;
-// }
-
-// @keyframes wobble {
-//   25% {
-//     transform: rotate(15deg);
-//   }
-//   50% {
-//     transform: rotate(-30deg);
-//   }
-//   75% {
-//     transform: rotate(5deg);
-//   }
-//   100% {
-//     transform: rotate(0deg);
-//   }
-// }

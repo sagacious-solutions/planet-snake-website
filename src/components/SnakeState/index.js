@@ -21,10 +21,6 @@ function TabPanel(props) {
     >
       {value === index && (
         <Box p={3}>
-          {/* https://stackoverflow.com/questions/41928567/div-cannot-appear-as-a-descendant-of-p 
-          React was throwing error "<div> cannot appear as a descendant of <p>"
-          Changing this to a span fixed this error
-          */}
           <Typography component={"span"}>{children}</Typography>
         </Box>
       )}
@@ -53,9 +49,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//////////////////////////////////////////////////////////////////////
-// START OF MAIN COMPONENT
-//////////////////////////////////////////////////////////////////////////
+// This is currently undergoing debugging and will change significantly
 export default function ScrollableTabsButtonAuto() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);

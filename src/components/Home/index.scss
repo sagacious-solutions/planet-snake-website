@@ -1,46 +1,40 @@
 @mixin dispComp {
-  display:flex;
+  display: flex;
   justify-content: center;
-  color: #2a4d61
+  color: #2a4d61;
 }
 
 @mixin bigFont {
   color: #2a4d61;
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   font-size: large;
 }
 
 @mixin smallFont {
   color: #2a4d61;
-  font-family: 'Share Tech', sans-serif;
+  font-family: "Share Tech", sans-serif;
   font-size: small;
 }
 
 @mixin buttonFont {
   color: goldenrod;
-  font-family: 'Oxanium', cursive;
+  font-family: "Oxanium", cursive;
   font-size: small;
 }
 
 .control-board {
-  // display: flex;
-  // flex-direction: row;
-  // justify-content: space-around;
   @include dispComp();
   @include buttonFont();
   border: none;
   border-radius: 29px;
-  // color: #306998;
-  color: #FFD43B;
+  color: #ffd43b;
   background-color: goldenrod;
-  // background-color: #FFD43B;
   max-width: 960px;
 }
 
 .heater-control {
   display: flex;
   flex-direction: column;
-  // background-color: goldenrod;
 }
 
 h2 {
@@ -60,9 +54,7 @@ div.sensor-output {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  position: static
-
-  // align-content: space-around;
+  position: static;
 }
 
 p.sensor-readout {
@@ -81,7 +73,6 @@ p.sensor-readout {
   margin-top: 2%;
   justify-items: flex-end;
   position: fixed;
-  // height: 100%;
 }
 
 main {

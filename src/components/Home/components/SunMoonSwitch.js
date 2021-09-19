@@ -9,7 +9,6 @@ const SunMoonSwitch = (props) => {
   const [count, setCount] = React.useState(0);
   const [sunMoonImage, setSunMoonImage] = useState("images/sunmoonTrans.png");
 
-  // THIS IS SO SPOOKY MODE ONLY RUNS ONCE
   useEffect(() => {
     if (count % 2 === 1) {
       setTimeout(() => setSunMoonImage("images/JackSkellington.png"), 2000);

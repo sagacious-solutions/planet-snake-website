@@ -12,6 +12,7 @@ export default function LatestDataDisplay() {
     updateAll();
   }, []);
 
+  // This is currentlly undergoing debugging
   const measureAvgTimeBetween = (timeArray) => {
     let lastTime = timeArray[0];
     const timeBetween = [];
@@ -27,13 +28,8 @@ export default function LatestDataDisplay() {
     for (let value of timeArray) {
       if (value !== lastTime) {
         timeBetween.push(value - lastTime);
-
-        console.log(value - lastTime);
       }
-
-      // console.log(value);
     }
-    // console.log(dataIn);
   };
 
   const columns = [

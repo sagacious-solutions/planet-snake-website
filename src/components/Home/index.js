@@ -2,12 +2,10 @@ import React from "react";
 
 import HeaterControl from "./components/HeaterControl";
 import useHardwareAPI from "../../hooks/useHardwareAPI";
-
-// This generates a fairly open ended button thats used in multiple places
-import "./index.scss";
 import SunMoonSwitch from "./components/SunMoonSwitch";
 import DisplaySensorData from "./components/DisplayZoneTemp";
 import VideoFeed from "./components/VideoFeed";
+import "./index.scss";
 
 export default function Home(props) {
   const {
