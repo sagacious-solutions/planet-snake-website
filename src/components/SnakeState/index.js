@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
@@ -6,9 +6,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import useDatabaseAPI from "../../hooks/useDatabaseAPI";
-// import { format } from "timeago.js";
-import DataDisplay from "./Components/DataDisplay";
+import LatestDataDisplay from "./Components/LatestDataDisplay";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,14 +57,8 @@ const useStyles = makeStyles((theme) => ({
 // START OF MAIN COMPONENT
 //////////////////////////////////////////////////////////////////////////
 export default function ScrollableTabsButtonAuto() {
-  const { state, updateAll } = useDatabaseAPI();
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
-  // THIS IS TO GET BACK AND SEPERATE OUT DATABASE VALUES FOR LAST POOP FOUND
-  useEffect(() => {
-    updateAll();
-  }, []);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -94,7 +86,7 @@ export default function ScrollableTabsButtonAuto() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <DataDisplay />
+        <LatestDataDisplay />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
