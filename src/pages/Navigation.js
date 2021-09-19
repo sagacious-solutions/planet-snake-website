@@ -78,13 +78,14 @@ const useStyles = makeStyles((theme) => ({
     overflowX: "hidden",
     width: theme.spacing(0),
     [theme.breakpoints.up("sm")]: {
-      width: theme.spacing(9),
+      width: theme.spacing(8),
     },
   },
   toolbar: {
     display: "flex",
     alignItems: "center",
     justifyContent: "flex-end",
+    marginTop: "30px",
     padding: theme.spacing(0, 1),
     ...theme.mixins.toolbar,
   },
