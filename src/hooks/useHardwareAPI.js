@@ -21,10 +21,6 @@ export default function useHardwareAPI() {
   const seconds = 1000; // For setTimeouts
   const updateInterval = 30 * seconds;
 
-  // axios.listen(8899, () => {
-  //   console.log("Server started at port 8899");
-  // });
-
   const temperatureAdjust = 0.5; // The amount to change the temperature by on all adjustments
 
   ////////////////////////////////////////////////////////////////
@@ -36,8 +32,6 @@ export default function useHardwareAPI() {
     }, updateInterval);
     return () => clearInterval(interval);
   }, []);
-
-  ///////////////////////////////////////////////////////
 
   // Updates the current temperatures from the api
   const updateCurrent = () => {
