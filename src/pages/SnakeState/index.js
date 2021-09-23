@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import LatestDataDisplay from "./Components/LatestDataDisplay";
+import UpdateSnakeState from "./Components/UpdateSnakeState";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,6 +46,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: "100%",
+    marginLeft: "2.5em",
     backgroundColor: theme.palette.background.paper,
   },
 }));
@@ -81,6 +83,7 @@ export default function ScrollableTabsButtonAuto() {
       </AppBar>
       <TabPanel value={value} index={0}>
         <LatestDataDisplay />
+        <UpdateSnakeState />
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
