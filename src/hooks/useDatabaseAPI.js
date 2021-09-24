@@ -51,7 +51,7 @@ export default function useDatabaseAPI() {
       getAllShedsImminent(),
       getAllShedsComplete(),
       getAllWeightMeasures(),
-      getAllLengthMeasures(),
+      // getAllLengthMeasures(),
     ]).then((responses) => {
       setState((classicState) => {
         return {
@@ -64,7 +64,7 @@ export default function useDatabaseAPI() {
           sheds_imminent: fetchTimeStamps(responses[5]),
           sheds_complete: fetchTimeStamps(responses[6]),
           weight_measures: processDataToArray(responses[7], "snake_weight"),
-          length_measures: processDataToArray(responses[8], "snake_length"),
+          // length_measures: processDataToArray(responses[8], "snake_length"),
         };
       });
     });
@@ -102,9 +102,9 @@ export default function useDatabaseAPI() {
   const getAllWeightMeasures = () => {
     return axios.get(`${db_address}/weight_measures`);
   };
-  const getAllLengthMeasures = () => {
-    return axios.get(`${db_address}/length_measures`);
-  };
+  // const getAllLengthMeasures = () => {
+  //   return axios.get(`${db_address}/length_measures`);
+  // };
 
   return { state, updateAll };
 }
