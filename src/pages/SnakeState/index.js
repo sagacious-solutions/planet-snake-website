@@ -9,6 +9,8 @@ import Box from "@material-ui/core/Box";
 import LatestDataDisplay from "./Components/LatestDataDisplay";
 import UpdateSnakeState from "./Components/UpdateSnakeState";
 
+import "./index.scss";
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -82,8 +84,10 @@ export default function ScrollableTabsButtonAuto() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-        <LatestDataDisplay />
-        <UpdateSnakeState />
+        <div className="snake-state-page">
+          <LatestDataDisplay />
+          <UpdateSnakeState />
+        </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
