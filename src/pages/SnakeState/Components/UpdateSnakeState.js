@@ -6,16 +6,22 @@ import { spacing } from "@mui/system";
 
 import "./UpdateSnakeState.scss";
 
-const SPACING_AMMOUNT = "14%";
+const SPACING_AMMOUNT = "18%";
 
-const button_style = {
-  border: 2,
+const end_button_style = {
+  borderRadius: 5,
   paddingTop: SPACING_AMMOUNT,
   paddingBottom: SPACING_AMMOUNT,
-  textAlign: "center",
-  textColor: "red",
-  borderColor: "blue",
-  borderRadius: 5,
+};
+
+const button_style = {
+  // border: 2,
+  paddingTop: SPACING_AMMOUNT,
+  paddingBottom: SPACING_AMMOUNT,
+  // textAlign: "center",
+  // textColor: "red",
+  // borderColor: "blue",
+  // borderRadius: 5,
   // borderBottomColor: "black!important",
 };
 
@@ -24,30 +30,30 @@ export default function UpdateSnakeState() {
     <ButtonGroup
       orientation="vertical"
       // aria-label="vertical outlined button group"
-      size="large"
+      // size="large"
       // display="flex"
     >
-      <Box sx={button_style}>
-        <Button key="poop">Poop Found</Button>
-      </Box>
-      <Box sx={button_style}>
-        <Button key="urate">Urate Found</Button>
-      </Box>
-      <Box sx={button_style}>
-        <Button key="ratOffered">Rat Offered</Button>
-      </Box>
-      <Box sx={button_style}>
-        <Button key="ratAte">Rat Ate</Button>
-      </Box>
-      <Box sx={button_style}>
-        <Button key="ratIgnored">Rat Ignored</Button>
-      </Box>
-      <Box sx={button_style}>
-        <Button key="shedImminent">Shed Imminent</Button>
-      </Box>
-      <Box sx={button_style}>
-        <Button key="shedComplete">Shed Complete</Button>
-      </Box>
+      <Button key="poop" sx={end_button_style}>
+        Poop Found
+      </Button>
+      <Button key="urate" sx={button_style}>
+        Urate Found
+      </Button>
+      <Button key="ratOffered" sx={button_style}>
+        Rat Offered
+      </Button>
+      <Button key="ratAte" sx={button_style}>
+        Rat Ate
+      </Button>
+      <Button key="ratIgnored" sx={button_style}>
+        Rat Ignored
+      </Button>
+      <Button key="shedImminent" sx={button_style}>
+        Shed Imminent
+      </Button>
+      <Button key="shedComplete" sx={end_button_style}>
+        Shed Complete
+      </Button>
     </ButtonGroup>
   );
 }
