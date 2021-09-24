@@ -7,38 +7,22 @@ const buttons = [
   <Button key="one">One</Button>,
   <Button key="two">Two</Button>,
   <Button key="three">Three</Button>,
+  <Button key="three">Three</Button>,
+  <Button key="three">Three</Button>,
+  <Button key="three">Three</Button>,
+  <Button key="three">Three</Button>,
 ];
 
 export default function UpdateSnakeState() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-        "& > *": {
-          m: 1,
-        },
-      }}
+    <ButtonGroup
+      orientation="vertical"
+      aria-label="vertical outlined button group"
+      size="large"
+      display="flex"
+      align-content="space-between"
     >
-      <ButtonGroup
-        orientation="vertical"
-        aria-label="vertical outlined button group"
-      >
-        {buttons}
-      </ButtonGroup>
-      <ButtonGroup
-        orientation="vertical"
-        aria-label="vertical contained button group"
-        variant="contained"
-      >
-        {buttons}
-      </ButtonGroup>
-      <ButtonGroup
-        orientation="vertical"
-        aria-label="vertical contained button group"
-        variant="text"
-      >
-        {buttons}
-      </ButtonGroup>
-    </Box>
+      {buttons}
+    </ButtonGroup>
   );
 }
