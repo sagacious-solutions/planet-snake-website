@@ -78,6 +78,10 @@ export default function useDatabaseAPI() {
     });
   };
 
+  const putSnakeState = (newState) => {
+    return axios.post(`${db_address}/update_snake_state`, { newState });
+  };
+
   const getAllPoops = () => {
     return axios.get(`${db_address}/poop_found`);
   };
@@ -106,5 +110,5 @@ export default function useDatabaseAPI() {
   //   return axios.get(`${db_address}/length_measures`);
   // };
 
-  return { state, updateAll };
+  return { state, updateAll, putSnakeState };
 }
