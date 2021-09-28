@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Box from "@mui/material/Box";
 import { spacing } from "@mui/system";
+import useDatabaseAPI from "../../../hooks/useDatabaseAPI";
 
 import "./UpdateSnakeState.scss";
 
@@ -26,6 +27,8 @@ const button_style = {
 };
 
 export default function UpdateSnakeState() {
+  const { putSnakeState } = useDatabaseAPI();
+
   return (
     <ButtonGroup
       orientation="vertical"
@@ -33,7 +36,15 @@ export default function UpdateSnakeState() {
       // size="large"
       // display="flex"
     >
-      <Button key="poop" sx={end_button_style}>
+      <Button
+        key="poop"
+        sx={end_button_style}
+        onClick={() =>
+          putSnakeState({
+            thisData: "hello",
+          })
+        }
+      >
         Poop Found
       </Button>
       <Button key="urate" sx={button_style}>
