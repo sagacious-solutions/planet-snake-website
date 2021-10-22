@@ -1,8 +1,6 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
-import Box from "@mui/material/Box";
-import { spacing } from "@mui/system";
 import useDatabaseAPI from "../../../hooks/useDatabaseAPI";
 
 import "./UpdateSnakeState.scss";
@@ -16,53 +14,91 @@ const end_button_style = {
 };
 
 const button_style = {
-  // border: 2,
   paddingTop: SPACING_AMMOUNT,
   paddingBottom: SPACING_AMMOUNT,
-  // textAlign: "center",
-  // textColor: "red",
-  // borderColor: "blue",
-  // borderRadius: 5,
-  // borderBottomColor: "black!important",
 };
 
-export default function UpdateSnakeState() {
+export default function UpdateSnakeState(props) {
   const { putSnakeState } = useDatabaseAPI();
+  const updateLocalSnakeState = props.updateAll;
 
   return (
-    <ButtonGroup
-      orientation="vertical"
-      // aria-label="vertical outlined button group"
-      // size="large"
-      // display="flex"
-    >
+    <ButtonGroup orientation="vertical">
       <Button
         key="poop"
         sx={end_button_style}
-        onClick={() =>
+        onClick={() => {
           putSnakeState({
-            thisData: "hello",
-          })
-        }
+            poop_found: true,
+          }).then(() => updateLocalSnakeState());
+        }}
       >
         Poop Found
       </Button>
-      <Button key="urate" sx={button_style}>
+      <Button
+        key="urate"
+        sx={button_style}
+        onClick={() => {
+          putSnakeState({
+            urate_found: true,
+          }).then(() => updateLocalSnakeState());
+        }}
+      >
         Urate Found
       </Button>
-      <Button key="ratOffered" sx={button_style}>
+      <Button
+        key="ratOffered"
+        sx={button_style}
+        onClick={() =>
+          putSnakeState({
+            rat_offered: true,
+          }).then(() => updateLocalSnakeState())
+        }
+      >
         Rat Offered
       </Button>
-      <Button key="ratAte" sx={button_style}>
+      <Button
+        key="ratAte"
+        sx={button_style}
+        onClick={() =>
+          putSnakeState({
+            rat_ate: true,
+          }).then(() => updateLocalSnakeState())
+        }
+      >
         Rat Ate
       </Button>
-      <Button key="ratIgnored" sx={button_style}>
+      <Button
+        key="ratIgnored"
+        sx={button_style}
+        onClick={() =>
+          putSnakeState({
+            rat_ignored: true,
+          }).then(() => updateLocalSnakeState())
+        }
+      >
         Rat Ignored
       </Button>
-      <Button key="shedImminent" sx={button_style}>
+      <Button
+        key="shedImminent"
+        sx={button_style}
+        onClick={() =>
+          putSnakeState({
+            shed_imminent: true,
+          }).then(() => updateLocalSnakeState())
+        }
+      >
         Shed Imminent
       </Button>
-      <Button key="shedComplete" sx={end_button_style}>
+      <Button
+        key="shedComplete"
+        sx={end_button_style}
+        onClick={() =>
+          putSnakeState({
+            shed_complete: true,
+          }).then(() => updateLocalSnakeState())
+        }
+      >
         Shed Complete
       </Button>
     </ButtonGroup>
