@@ -2,14 +2,12 @@ import * as React from "react";
 import { useEffect } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { format } from "timeago.js";
-import useDatabaseAPI from "../../../hooks/useDatabaseAPI";
 
-// This react table takes in arrays of time stamps and formats them with timeago's format function
-export default function LatestDataDisplay() {
-  const { state, updateAll } = useDatabaseAPI();
+export default function LatestDataDisplay(props) {
+  const state = { ...props.state };
 
   useEffect(() => {
-    updateAll();
+    props.updateAll();
   }, []);
 
   // This is currentlly undergoing debugging
