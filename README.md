@@ -1,6 +1,6 @@
 <h1>Planet Snake Web Interface</h1>
 
-This is a React.JS front end to connect to <a href="https://github.com/sagacious-solutions/Planet-Snake-HardwareAPI">Planet Snake Hardware API.</a> The snake state page is fed from PSQL via <a href="https://github.com/sagacious-solutions/planet-snake-database">Planet Snake Database<a> which is currently running on the raspberry pi as well.
+This is a React.JS front end to connect to <a href="https://github.com/sagacious-solutions/Planet-Snake-HardwareAPI">Planet Snake Hardware API.</a>
 
 <img src="./documentation/images/sunMoonSwitch.gif" width="100%" />
 This is the main landing page. The lights in the terrarium can be switched between Day and Night mode by hitting the sun and moon ying yang. It will rotate to show the current state of the terrarium when clicked. The right hand side has the current temperatures in the controlled areas as well as the ability to set the target temperature for those zones.
